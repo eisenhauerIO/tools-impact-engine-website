@@ -155,7 +155,7 @@ h3 {
     color: var(--accent-color);
 }
 
-h3 .badges {
+h4 .badges {
     display: inline-flex;
     gap: 8px;
     align-items: center;
@@ -163,13 +163,13 @@ h3 .badges {
     vertical-align: middle;
 }
 
-h3 .badges a {
+h4 .badges a {
     border-bottom: none;
     line-height: 0;
 }
 
-h3 .badges img {
-    height: 1.4em;
+h4 .badges img {
+    height: 1.1em;
 }
 
 p {
