@@ -30,22 +30,10 @@
 
             <main>
                 <h2>Causal Inference — What happened?</h2>
-                <div class="section-flex">
-                    <div class="section-image" style="max-width: 420px;">
-                        <img src="img/counterfactual.svg"
-                             alt="Timeline showing observed outcome diverging from the unobservable counterfactual after an initiative launches.">
-                    </div>
-                    <div class="section-text">
-                        <p class="tagline">You can only ever observe one world. Every causal method reconstructs the one you didn't.</p>
-                        <p>
-                            When an initiative launches and metrics move, the natural instinct is to
-                            claim credit. But other things changed at the same time — seasonality,
-                            competitor actions, market shifts. The fundamental problem of causal
-                            inference is that you can never observe both worlds: the one where the
-                            intervention happened and the one where it didn't. Every causal method
-                            is a different way to reconstruct that missing counterfactual.
-                        </p>
-                    </div>
+                <div class="diagram-container">
+                    <img src="img/counterfactual.svg"
+                         alt="Timeline showing observed outcome diverging from the unobservable counterfactual after an initiative launches.">
+                    <p class="diagram-caption">You can only ever observe one world. Every causal method reconstructs the one you didn't.</p>
                 </div>
                 <h4>
                     <span class="badges">
@@ -63,21 +51,10 @@
                 </p>
 
                 <h2>Evidence Assessment — What did we learn?</h2>
-                <div class="section-flex">
-                    <div class="section-text">
-                        <p class="tagline">Not all estimates are equal. The method that produced a number determines how much weight it deserves.</p>
-                        <p>
-                            How much you trust a causal estimate depends on the method that produced
-                            it. A randomized experiment with thousands of observations produces
-                            stronger evidence than a time series model on sparse data. Evidence
-                            assessment scores each estimate for reliability — creating a calibrated
-                            hierarchy from experimental designs down to approximations.
-                        </p>
-                    </div>
-                    <div class="section-image" style="max-width: 420px;">
-                        <img src="img/evidence-hierarchy.svg"
-                             alt="Horizontal confidence bars for four causal methods, decreasing from Randomized Experiment (0.95) down to Time Series ARIMA (0.45).">
-                    </div>
+                <div class="diagram-container">
+                    <img src="img/evidence-hierarchy.svg"
+                         alt="Horizontal confidence bars for four causal methods, decreasing from Randomized Experiment (0.95) down to Time Series ARIMA (0.45).">
+                    <p class="diagram-caption">Not all estimates are equal. The method that produced a number determines how much weight it deserves.</p>
                 </div>
                 <h4>
                     <span class="badges">
@@ -95,20 +72,10 @@
                 </p>
 
                 <h2>Decision Theory — What should we do?</h2>
-                <div class="section-flex">
-                    <div class="section-image" style="max-width: 420px;">
-                        <img src="img/portfolio-allocation.svg"
-                             alt="Grouped bar chart showing confidence-adjusted returns for three initiatives across optimistic, base, and pessimistic scenarios. Initiatives A and B are selected; C is not funded due to its near-zero pessimistic return.">
-                    </div>
-                    <div class="section-text">
-                        <p class="tagline">Knowing what works is not enough. You still have to decide where to bet.</p>
-                        <p>
-                            Knowing what works is not enough — you must decide where to invest under
-                            constraints and uncertainty. Decision theory frames this as a portfolio
-                            optimization problem: select the set of initiatives that maximizes
-                            returns across scenarios while respecting budget and strategic constraints.
-                        </p>
-                    </div>
+                <div class="diagram-container">
+                    <img src="img/portfolio-allocation.svg"
+                         alt="Grouped bar chart showing confidence-adjusted returns for three initiatives across optimistic, base, and pessimistic scenarios. Initiatives A and B are selected; C is not funded due to its near-zero pessimistic return.">
+                    <p class="diagram-caption">Knowing what works is not enough. You still have to decide where to bet.</p>
                 </div>
                 <h4>
                     <span class="badges">
