@@ -30,11 +30,6 @@
 
             <main>
                 <h2>Causal Inference — What happened?</h2>
-                <p>
-                    When metrics move after an initiative launches, other things move too — seasonality,
-                    competitor actions, market shifts. The causal question is always: how much of that
-                    movement was actually caused by the initiative?
-                </p>
                 <div class="section-flex">
                     <div class="section-image" style="max-width: 420px;">
                         <img src="img/counterfactual.svg"
@@ -42,44 +37,35 @@
                         <p class="diagram-caption">You can only ever observe one world. Every causal method reconstructs the one you didn't.</p>
                     </div>
                     <div class="section-text">
-                        <h4>
-                            <span class="badges">
-                                <a href="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/ci.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>
-                                <a href="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/docs.yml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/docs.yml/badge.svg?branch=main" alt="Docs"></a>
-                            </span>
-                            Impact Engine — Measure
-                        </h4>
                         <p>
-                            The <strong>Impact Engine — Measure</strong> manages the full measurement
-                            pipeline — data loading, transformation, estimation, and storage — behind
-                            a single config-driven interface. Swap the causal method, data source, or
-                            storage backend by changing one line in YAML, without rewriting connectors
-                            or breaking downstream consumers.
+                            When metrics move after an initiative launches, other things move too — seasonality,
+                            competitor actions, market shifts. The causal question is always: how much of that
+                            movement was actually caused by the initiative?
                         </p>
                     </div>
                 </div>
+                <h4>
+                    <span class="badges">
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/ci.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/docs.yml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/docs.yml/badge.svg?branch=main" alt="Docs"></a>
+                    </span>
+                    Impact Engine — Measure
+                </h4>
+                <p>
+                    The <strong>Impact Engine — Measure</strong> manages the full measurement
+                    pipeline — data loading, transformation, estimation, and storage — behind
+                    a single config-driven interface. Swap the causal method, data source, or
+                    storage backend by changing one line in YAML, without rewriting connectors
+                    or breaking downstream consumers.
+                </p>
 
                 <h2>Evidence Assessment — What did we learn?</h2>
-                <p>
-                    Not every causal estimate deserves the same weight. The design of a study —
-                    how random the assignment, how clean the control group — determines how much
-                    the resulting number can be trusted.
-                </p>
                 <div class="section-flex">
                     <div class="section-text">
-                        <h4>
-                            <span class="badges">
-                                <a href="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/ci.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>
-                                <a href="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/docs.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/docs.yaml/badge.svg?branch=main" alt="Docs"></a>
-                            </span>
-                            Impact Engine — Evaluate
-                        </h4>
                         <p>
-                            The <strong>Impact Engine — Evaluate</strong> assigns a confidence score
-                            to each initiative based on its measurement design. That score directly
-                            penalizes return estimates downstream: low confidence pulls returns toward
-                            worst-case scenarios, making the allocator conservative where evidence is
-                            weak and aggressive where evidence is strong.
+                            Not every causal estimate deserves the same weight. The design of a study —
+                            how random the assignment, how clean the control group — determines how much
+                            the resulting number can be trusted.
                         </p>
                     </div>
                     <div class="section-image" style="max-width: 420px;">
@@ -88,13 +74,22 @@
                         <p class="diagram-caption">Not all estimates are equal. The method that produced a number determines how much weight it deserves.</p>
                     </div>
                 </div>
+                <h4>
+                    <span class="badges">
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/ci.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/docs.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/docs.yaml/badge.svg?branch=main" alt="Docs"></a>
+                    </span>
+                    Impact Engine — Evaluate
+                </h4>
+                <p>
+                    The <strong>Impact Engine — Evaluate</strong> assigns a confidence score
+                    to each initiative based on its measurement design. That score directly
+                    penalizes return estimates downstream: low confidence pulls returns toward
+                    worst-case scenarios, making the allocator conservative where evidence is
+                    weak and aggressive where evidence is strong.
+                </p>
 
                 <h2>Decision Theory — What should we do?</h2>
-                <p>
-                    Causal estimates and confidence scores answer what happened. They don't answer
-                    what to fund. Decision theory frames allocation as a portfolio problem and
-                    resolves it under uncertainty.
-                </p>
                 <div class="section-flex">
                     <div class="section-image" style="max-width: 420px;">
                         <img src="img/portfolio-allocation.svg"
@@ -102,22 +97,27 @@
                         <p class="diagram-caption">Knowing what works is not enough. You still have to decide where to bet.</p>
                     </div>
                     <div class="section-text">
-                        <h4>
-                            <span class="badges">
-                                <a href="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/ci.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>
-                                <a href="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/docs.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/docs.yaml/badge.svg?branch=main" alt="Docs"></a>
-                            </span>
-                            Impact Engine — Allocate
-                        </h4>
                         <p>
-                            The <strong>Impact Engine — Allocate</strong> solves this with two
-                            pluggable decision rules. Minimax regret minimizes the maximum regret
-                            across all scenarios. A Bayesian solver maximizes expected return under
-                            user-specified scenario weights. Both consume confidence-penalized
-                            returns — better evidence enables better bets.
+                            Causal estimates and confidence scores answer what happened. They don't answer
+                            what to fund. Decision theory frames allocation as a portfolio problem and
+                            resolves it under uncertainty.
                         </p>
                     </div>
                 </div>
+                <h4>
+                    <span class="badges">
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/ci.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/docs.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/docs.yaml/badge.svg?branch=main" alt="Docs"></a>
+                    </span>
+                    Impact Engine — Allocate
+                </h4>
+                <p>
+                    The <strong>Impact Engine — Allocate</strong> solves this with two
+                    pluggable decision rules. Minimax regret minimizes the maximum regret
+                    across all scenarios. A Bayesian solver maximizes expected return under
+                    user-specified scenario weights. Both consume confidence-penalized
+                    returns — better evidence enables better bets.
+                </p>
 
                 <a href="index.html" class="back-link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
