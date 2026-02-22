@@ -90,6 +90,12 @@ nav a:hover {
     border-bottom: none;
 }
 
+nav a[aria-current="page"] {
+    background-color: rgba(255,255,255,0.18);
+    cursor: default;
+    pointer-events: none;
+}
+
 /* Content area */
 
 .content {
@@ -535,6 +541,20 @@ section {
     color: var(--text-light);
     margin-top: 12px;
     font-style: italic;
+}
+
+/* Reading list (further reading citations) */
+
+.reading-list {
+    border-left: 3px solid var(--border-color);
+    padding-left: 20px;
+    margin-bottom: 28px;
+}
+
+.reading-list p {
+    font-size: 0.9em;
+    margin-bottom: 6px;
+    line-height: 1.6;
 }
 
 /* Animation */

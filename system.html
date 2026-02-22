@@ -14,8 +14,9 @@
     <div class="container">
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Problem</a></li>
                 <li><a href="science.html">Science</a></li>
+                <li><a href="system.html" aria-current="page">System</a></li>
             </ul>
         </nav>
 
@@ -28,13 +29,24 @@
                     is a separate Python package with its own repository, CI, and release
                     cycle — wired together by an orchestrator at runtime.
                 </p>
-                <div class="diagram-container">
-                    <img src="img/overview.svg" alt="Pipeline stages: Measure, Evaluate, Allocate, Scale">
-                </div>
             </header>
 
             <main>
                 <h2>Design Decisions</h2>
+                <div class="section-flex">
+                    <div class="section-image" style="max-width: 420px;">
+                        <img src="img/overview.svg"
+                             alt="Pipeline stages: Measure, Evaluate, Allocate, Scale">
+                        <p class="diagram-caption">Four stages, four packages, one orchestrator.</p>
+                    </div>
+                    <div class="section-text">
+                        <p>
+                            Each stage is a separate Python package with its own repository, CI, and
+                            release cycle. Four design decisions keep them decoupled while the
+                            orchestrator wires them together at runtime.
+                        </p>
+                    </div>
+                </div>
                 <div class="card-grid card-grid-2">
                     <div class="card">
                         <h3>Protocol-based interfaces</h3>
@@ -83,6 +95,18 @@ COMPONENT_REGISTRY = {
     "Evaluate": Evaluate,
     "MinimaxRegretAllocate": MinimaxRegretAllocate,
 }</code></pre>
+                <h4>
+                    <span class="badges">
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-orchestrator/actions/workflows/ci.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-orchestrator/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-orchestrator/actions/workflows/docs.yml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-orchestrator/actions/workflows/docs.yml/badge.svg?branch=main" alt="Docs"></a>
+                    </span>
+                    Impact Engine — Orchestrator
+                </h4>
+                <p>
+                    The <strong>Impact Engine — Orchestrator</strong> enforces these decisions.
+                    It owns the registry, the config loader, and the fan-out/fan-in execution
+                    model — connecting independently developed stages into a single pipeline run.
+                </p>
 
                 <h2>Pipeline Architecture</h2>
                 <div class="diagram-container">
@@ -115,14 +139,19 @@ COMPONENT_REGISTRY = {
                 </p>
 
                 <h2>Component Architecture</h2>
-                <p>
-                    Each component follows the same internal pattern. The Measure package
-                    illustrates it: an internal pipeline of Load, Transform, Measure, and
-                    Store — each backed by a pluggable adapter.
-                </p>
-                <div class="diagram-container">
-                    <img src="img/measure-architecture.svg" alt="Measure internal pipeline: Load → Transform → Measure → Store, each backed by an adapter">
-                    <p class="diagram-caption">Measure component: Load → Transform → Measure → Store</p>
+                <div class="section-flex">
+                    <div class="section-text">
+                        <p>
+                            Each component follows the same internal pattern. The Measure package
+                            illustrates it: an internal pipeline of Load, Transform, Measure, and
+                            Store — each backed by a pluggable adapter.
+                        </p>
+                    </div>
+                    <div class="section-image" style="max-width: 420px;">
+                        <img src="img/measure-architecture.svg"
+                             alt="Measure internal pipeline: Load → Transform → Measure → Store, each backed by an adapter">
+                        <p class="diagram-caption">Measure component: Load → Transform → Measure → Store</p>
+                    </div>
                 </div>
                 <p>
                     <strong>Three-tier adapter pattern.</strong> External libraries (SARIMAX,
@@ -144,6 +173,18 @@ COMPONENT_REGISTRY = {
                     structure: an <code>AllocationSolver</code> Protocol with pluggable solvers
                     (minimax regret, Bayesian), injected into the component via constructor.
                     Evaluate uses deterministic scoring functions keyed by model type.
+                </p>
+                <h4>
+                    <span class="badges">
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/ci.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/docs.yml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/docs.yml/badge.svg?branch=main" alt="Docs"></a>
+                    </span>
+                    Impact Engine — Measure
+                </h4>
+                <p>
+                    The <strong>Impact Engine — Measure</strong> is the reference implementation
+                    of this pattern — six model adapters, self-registering via decorator, each
+                    independently testable against the shared adapter interface.
                 </p>
 
                 <h2>Agentic Support</h2>
@@ -189,6 +230,35 @@ COMPONENT_REGISTRY = {
                             files propagate conventions from workspace to component level.
                         </p>
                     </div>
+                </div>
+                <h4>Utils — Agentic Support</h4>
+                <p>
+                    The <a href="https://github.com/eisenhauerIO/utils-agentic-support" target="_blank"><strong>Utils — Agentic Support</strong></a>
+                    library is installed as a git submodule in every package, providing the
+                    skills, subagents, and templates that enforce ecosystem conventions through
+                    AI-assisted development.
+                </p>
+
+                <hr>
+                <h2>Further Reading</h2>
+                <p>The architecture borrows heavily from three bodies of work: classical software design patterns, messaging-oriented integration, and the operational discipline of running ML in production.</p>
+
+                <h4>Software Design</h4>
+                <div class="reading-list">
+                    <p>E. Gamma, R. Helm, R. Johnson &amp; J. Vlissides — <em>Design Patterns: Elements of Reusable Object-Oriented Software</em> (1994)</p>
+                    <p>M. Fowler — <em>Patterns of Enterprise Application Architecture</em> (2002)</p>
+                </div>
+
+                <h4>Integration Patterns</h4>
+                <div class="reading-list">
+                    <p>G. Hohpe &amp; B. Woolf — <em>Enterprise Integration Patterns: Designing, Building, and Deploying Messaging Solutions</em> (2003)</p>
+                    <p>M. Kleppmann — <em>Designing Data-Intensive Applications</em> (2017)</p>
+                </div>
+
+                <h4>Production Systems</h4>
+                <div class="reading-list">
+                    <p>B. Beyer, C. Jones, J. Petoff &amp; N.R. Murphy — <em>Site Reliability Engineering: How Google Runs Production Systems</em> (2016)</p>
+                    <p>D. Sculley et al. — <em>Hidden Technical Debt in Machine Learning Systems</em>, NeurIPS (2015)</p>
                 </div>
 
                 <a href="index.html" class="back-link">
