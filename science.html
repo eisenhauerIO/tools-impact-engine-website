@@ -30,18 +30,22 @@
 
             <main>
                 <h2>Causal Inference — What happened?</h2>
-                <p>
-                    When an initiative launches and metrics move, the natural instinct is to
-                    claim credit. But other things changed at the same time — seasonality,
-                    competitor actions, market shifts. The fundamental problem of causal
-                    inference is that you can never observe both worlds: the one where the
-                    intervention happened and the one where it didn't. Every causal method
-                    is a different way to reconstruct that missing counterfactual.
-                </p>
-                <div class="diagram-container">
-                    <img src="img/counterfactual.svg"
-                         alt="Timeline showing observed outcome diverging from the unobservable counterfactual after an initiative launches.">
-                    <p class="diagram-caption">The fundamental problem: you can only ever observe one world. Every causal method reconstructs the missing counterfactual.</p>
+                <div class="section-flex">
+                    <div class="section-image" style="max-width: 420px;">
+                        <img src="img/counterfactual.svg"
+                             alt="Timeline showing observed outcome diverging from the unobservable counterfactual after an initiative launches.">
+                        <p class="diagram-caption">The fundamental problem: you can only ever observe one world. Every causal method reconstructs the missing counterfactual.</p>
+                    </div>
+                    <div class="section-text">
+                        <p>
+                            When an initiative launches and metrics move, the natural instinct is to
+                            claim credit. But other things changed at the same time — seasonality,
+                            competitor actions, market shifts. The fundamental problem of causal
+                            inference is that you can never observe both worlds: the one where the
+                            intervention happened and the one where it didn't. Every causal method
+                            is a different way to reconstruct that missing counterfactual.
+                        </p>
+                    </div>
                 </div>
                 <h4>
                     <span class="badges">
@@ -59,17 +63,21 @@
                 </p>
 
                 <h2>Evidence Assessment — What did we learn?</h2>
-                <p>
-                    How much you trust a causal estimate depends on the method that produced
-                    it. A randomized experiment with thousands of observations produces
-                    stronger evidence than a time series model on sparse data. Evidence
-                    assessment scores each estimate for reliability — creating a calibrated
-                    hierarchy from experimental designs down to approximations.
-                </p>
-                <div class="diagram-container">
-                    <img src="img/evidence-hierarchy.svg"
-                         alt="Horizontal confidence bars for four causal methods, decreasing from Randomized Experiment (0.95) down to Time Series ARIMA (0.45).">
-                    <p class="diagram-caption">Evidence quality hierarchy: stronger designs earn higher confidence scores, which directly penalize return estimates downstream.</p>
+                <div class="section-flex">
+                    <div class="section-text">
+                        <p>
+                            How much you trust a causal estimate depends on the method that produced
+                            it. A randomized experiment with thousands of observations produces
+                            stronger evidence than a time series model on sparse data. Evidence
+                            assessment scores each estimate for reliability — creating a calibrated
+                            hierarchy from experimental designs down to approximations.
+                        </p>
+                    </div>
+                    <div class="section-image" style="max-width: 420px;">
+                        <img src="img/evidence-hierarchy.svg"
+                             alt="Horizontal confidence bars for four causal methods, decreasing from Randomized Experiment (0.95) down to Time Series ARIMA (0.45).">
+                        <p class="diagram-caption">Evidence quality hierarchy: stronger designs earn higher confidence scores, which directly penalize return estimates downstream.</p>
+                    </div>
                 </div>
                 <h4>
                     <span class="badges">
@@ -87,16 +95,20 @@
                 </p>
 
                 <h2>Decision Theory — What should we do?</h2>
-                <p>
-                    Knowing what works is not enough — you must decide where to invest under
-                    constraints and uncertainty. Decision theory frames this as a portfolio
-                    optimization problem: select the set of initiatives that maximizes
-                    returns across scenarios while respecting budget and strategic constraints.
-                </p>
-                <div class="diagram-container">
-                    <img src="img/portfolio-allocation.svg"
-                         alt="Forest plot showing five initiatives with uncertainty ranges on penalized return. Top three are funded (navy), bottom two are not funded (gray), separated by a budget limit line.">
-                    <p class="diagram-caption">Portfolio selection under uncertainty: initiatives with weak evidence have wide ranges; the budget funds those whose penalized returns clear the threshold.</p>
+                <div class="section-flex">
+                    <div class="section-image" style="max-width: 420px;">
+                        <img src="img/portfolio-allocation.svg"
+                             alt="Forest plot showing five initiatives with uncertainty ranges on penalized return. Top three are funded (navy), bottom two are not funded (gray), separated by a budget limit line.">
+                        <p class="diagram-caption">Portfolio selection under uncertainty: initiatives with weak evidence have wide ranges; the budget funds those whose penalized returns clear the threshold.</p>
+                    </div>
+                    <div class="section-text">
+                        <p>
+                            Knowing what works is not enough — you must decide where to invest under
+                            constraints and uncertainty. Decision theory frames this as a portfolio
+                            optimization problem: select the set of initiatives that maximizes
+                            returns across scenarios while respecting budget and strategic constraints.
+                        </p>
+                    </div>
                 </div>
                 <h4>
                     <span class="badges">

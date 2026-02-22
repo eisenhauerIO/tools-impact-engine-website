@@ -492,6 +492,17 @@ section {
     border-radius: 8px;
 }
 
+.section-flex .section-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.section-flex .section-image .diagram-caption {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
 .section-flex .section-text {
     flex: 1;
 }
