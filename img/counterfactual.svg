@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 230"
+     font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif">
+
+  <!-- Axes -->
+  <line x1="70" y1="190" x2="590" y2="190" stroke="#e2e8f0" stroke-width="1.5"/>
+  <line x1="70" y1="22"  x2="70"  y2="190" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- Axis labels -->
+  <text x="22" y="110" text-anchor="middle" fill="#a0aec0" font-size="11"
+        transform="rotate(-90 22 110)">Metric</text>
+  <text x="330" y="212" text-anchor="middle" fill="#a0aec0" font-size="11">Time</text>
+
+  <!-- Period labels -->
+  <text x="183" y="207" text-anchor="middle" fill="#cbd5e0" font-size="10">← Pre-period</text>
+  <text x="443" y="207" text-anchor="middle" fill="#cbd5e0" font-size="10">Post-period →</text>
+
+  <!-- Intervention dashed vertical line -->
+  <line x1="296" y1="28" x2="296" y2="190"
+        stroke="#718096" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+  <!-- t₀ annotation -->
+  <text x="303" y="42" fill="#4a5568" font-size="11" font-weight="500">t₀</text>
+  <text x="303" y="56" fill="#718096" font-size="10">Initiative</text>
+  <text x="303" y="68" fill="#718096" font-size="10">launches</text>
+
+  <!-- Shaded causal effect region -->
+  <path d="M 296,116 C 372,95 462,74 562,58 L 562,102 C 462,108 372,113 296,116 Z"
+        fill="#667eea" fill-opacity="0.12"/>
+
+  <!-- Pre-period trend -->
+  <path d="M 80,176 C 152,166 224,148 296,116"
+        fill="none" stroke="#1a365d" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Post-period: observed -->
+  <path d="M 296,116 C 372,95 462,74 562,58"
+        fill="none" stroke="#1a365d" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Post-period: counterfactual -->
+  <path d="M 296,116 C 372,112 462,107 562,102"
+        fill="none" stroke="#a0aec0" stroke-width="2" stroke-dasharray="7,5"
+        stroke-linecap="round"/>
+
+  <!-- Junction dot -->
+  <circle cx="296" cy="116" r="4.5" fill="#1a365d"/>
+
+  <!-- Causal effect label in shaded band -->
+  <text x="432" y="92" text-anchor="middle" fill="#2c5282"
+        font-size="10.5" font-style="italic">causal effect</text>
+
+  <!-- Delta bracket -->
+  <line x1="532" y1="63"  x2="542" y2="63"  stroke="#2c5282" stroke-width="1.5"/>
+  <line x1="532" y1="100" x2="542" y2="100" stroke="#2c5282" stroke-width="1.5"/>
+  <line x1="537" y1="63"  x2="537" y2="100" stroke="#2c5282" stroke-width="1.5"/>
+  <text x="521" y="86" text-anchor="middle" fill="#2c5282" font-size="14" font-weight="700">Δ</text>
+
+  <!-- Line-end labels -->
+  <text x="570" y="61"  fill="#1a365d" font-size="11" font-weight="600">Observed</text>
+  <text x="570" y="105" fill="#a0aec0" font-size="11">Counterfactual</text>
+
+</svg>

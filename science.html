@@ -38,7 +38,11 @@
                     intervention happened and the one where it didn't. Every causal method
                     is a different way to reconstruct that missing counterfactual.
                 </p>
-                <!-- TODO: add counterfactual diagram -->
+                <div class="diagram-container">
+                    <img src="img/counterfactual.svg"
+                         alt="Timeline showing observed outcome diverging from the unobservable counterfactual after an initiative launches.">
+                    <p class="diagram-caption">The fundamental problem: you can only ever observe one world. Every causal method reconstructs the missing counterfactual.</p>
+                </div>
                 <h4>
                     <span class="badges">
                         <a href="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/ci.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>
@@ -62,7 +66,11 @@
                     assessment scores each estimate for reliability — creating a calibrated
                     hierarchy from experimental designs down to approximations.
                 </p>
-                <!-- TODO: add evaluate diagram -->
+                <div class="diagram-container">
+                    <img src="img/evidence-hierarchy.svg"
+                         alt="Horizontal confidence bars for four causal methods, decreasing from Randomized Experiment (0.95) down to Time Series ARIMA (0.45).">
+                    <p class="diagram-caption">Evidence quality hierarchy: stronger designs earn higher confidence scores, which directly penalize return estimates downstream.</p>
+                </div>
                 <h4>
                     <span class="badges">
                         <a href="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/ci.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>
@@ -85,7 +93,11 @@
                     optimization problem: select the set of initiatives that maximizes
                     returns across scenarios while respecting budget and strategic constraints.
                 </p>
-                <!-- TODO: add allocate diagram -->
+                <div class="diagram-container">
+                    <img src="img/portfolio-allocation.svg"
+                         alt="Forest plot showing five initiatives with uncertainty ranges on penalized return. Top three are funded (navy), bottom two are not funded (gray), separated by a budget limit line.">
+                    <p class="diagram-caption">Portfolio selection under uncertainty: initiatives with weak evidence have wide ranges; the budget funds those whose penalized returns clear the threshold.</p>
+                </div>
                 <h4>
                     <span class="badges">
                         <a href="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/ci.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>

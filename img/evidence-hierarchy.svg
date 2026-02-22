@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 220"
+     font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif">
+
+  <!-- Column headers -->
+  <text x="220" y="28" text-anchor="end" fill="#4a5568" font-size="11"
+        font-weight="500" letter-spacing="0.3">METHOD</text>
+  <text x="236" y="28" fill="#4a5568" font-size="11"
+        font-weight="500" letter-spacing="0.3">CONFIDENCE</text>
+
+  <!-- Thin header divider -->
+  <line x1="20" y1="36" x2="680" y2="36" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- ── Row 1: Randomised Experiment ── -->
+  <text x="220" y="72" text-anchor="end" fill="#1a365d" font-size="12" font-weight="600">
+    Randomized Experiment
+  </text>
+  <!-- track -->
+  <rect x="236" y="58" width="370" height="24" rx="4" fill="#edf2f7"/>
+  <!-- bar (0.95 × 370 = 352) -->
+  <rect x="236" y="58" width="352" height="24" rx="4" fill="#1a365d"/>
+  <!-- score -->
+  <text x="614" y="75" fill="#1a365d" font-size="12" font-weight="600">0.95</text>
+
+  <!-- ── Row 2: Difference-in-Differences ── -->
+  <text x="220" y="118" text-anchor="end" fill="#2c5282" font-size="12" font-weight="600">
+    Difference-in-Differences
+  </text>
+  <!-- track -->
+  <rect x="236" y="104" width="370" height="24" rx="4" fill="#edf2f7"/>
+  <!-- bar (0.75 × 370 = 278) -->
+  <rect x="236" y="104" width="278" height="24" rx="4" fill="#2c5282"/>
+  <!-- score -->
+  <text x="614" y="121" fill="#2c5282" font-size="12" font-weight="600">0.75</text>
+
+  <!-- ── Row 3: Synthetic Control ── -->
+  <text x="220" y="164" text-anchor="end" fill="#4a6fa5" font-size="12" font-weight="600">
+    Synthetic Control
+  </text>
+  <!-- track -->
+  <rect x="236" y="150" width="370" height="24" rx="4" fill="#edf2f7"/>
+  <!-- bar (0.65 × 370 = 241) -->
+  <rect x="236" y="150" width="241" height="24" rx="4" fill="#4a6fa5"/>
+  <!-- score -->
+  <text x="614" y="167" fill="#4a6fa5" font-size="12" font-weight="600">0.65</text>
+
+  <!-- ── Row 4: Time Series (ARIMA) ── -->
+  <text x="220" y="210" text-anchor="end" fill="#718096" font-size="12" font-weight="600">
+    Time Series (ARIMA)
+  </text>
+  <!-- track -->
+  <rect x="236" y="196" width="370" height="24" rx="4" fill="#edf2f7"/>
+  <!-- bar (0.45 × 370 = 167) -->
+  <rect x="236" y="196" width="167" height="24" rx="4" fill="#a0aec0"/>
+  <!-- score -->
+  <text x="614" y="213" fill="#718096" font-size="12" font-weight="600">0.45</text>
+
+</svg>

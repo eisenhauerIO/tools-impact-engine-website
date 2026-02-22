@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 270"
+     font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif">
+
+  <!-- X axis -->
+  <line x1="160" y1="245" x2="590" y2="245" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- X axis ticks + labels (0%, 25%, 50%, 75%, 100%) -->
+  <!-- scale: (590-160)/100 = 4.3 px/% -->
+  <!-- 0%=160, 25%=268, 50%=375, 75%=483, 100%=590 -->
+  <line x1="160" y1="242" x2="160" y2="248" stroke="#a0aec0" stroke-width="1.5"/>
+  <line x1="268" y1="242" x2="268" y2="248" stroke="#a0aec0" stroke-width="1.5"/>
+  <line x1="375" y1="242" x2="375" y2="248" stroke="#a0aec0" stroke-width="1.5"/>
+  <line x1="483" y1="242" x2="483" y2="248" stroke="#a0aec0" stroke-width="1.5"/>
+  <line x1="590" y1="242" x2="590" y2="248" stroke="#a0aec0" stroke-width="1.5"/>
+  <text x="160" y="260" text-anchor="middle" fill="#a0aec0" font-size="10">0%</text>
+  <text x="268" y="260" text-anchor="middle" fill="#a0aec0" font-size="10">25%</text>
+  <text x="375" y="260" text-anchor="middle" fill="#a0aec0" font-size="10">50%</text>
+  <text x="483" y="260" text-anchor="middle" fill="#a0aec0" font-size="10">75%</text>
+  <text x="590" y="260" text-anchor="middle" fill="#a0aec0" font-size="10">100%</text>
+
+  <!-- Subtle vertical gridlines -->
+  <line x1="268" y1="28" x2="268" y2="245" stroke="#f0f4f8" stroke-width="1"/>
+  <line x1="375" y1="28" x2="375" y2="245" stroke="#f0f4f8" stroke-width="1"/>
+  <line x1="483" y1="28" x2="483" y2="245" stroke="#f0f4f8" stroke-width="1"/>
+
+  <!-- X axis title -->
+  <text x="375" y="272" text-anchor="middle" fill="#a0aec0" font-size="11">
+    Penalised Return (confidence × estimated effect)
+  </text>
+
+  <!-- Budget dashed separator between rows 3 and 4 -->
+  <line x1="130" y1="168" x2="680" y2="168"
+        stroke="#cbd5e0" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="672" y="165" text-anchor="end" fill="#a0aec0" font-size="10"
+        font-style="italic">budget limit</text>
+
+  <!-- ── FUNDED ROWS (navy) ── -->
+
+  <!-- Row 1 — Initiative A  range [53,83]% point=70%
+       x_low = 160+53*4.3=388  x_high = 160+83*4.3=517  x_pt = 160+70*4.3=461 -->
+  <text x="150" y="55" text-anchor="end" fill="#1a365d" font-size="12" font-weight="600">
+    Initiative A
+  </text>
+  <line x1="388" y1="52" x2="517" y2="52" stroke="#1a365d" stroke-width="2"/>
+  <line x1="388" y1="46" x2="388" y2="58" stroke="#1a365d" stroke-width="2"/>
+  <line x1="517" y1="46" x2="517" y2="58" stroke="#1a365d" stroke-width="2"/>
+  <circle cx="461" cy="52" r="5" fill="#1a365d"/>
+  <text x="610" y="55" fill="#1a365d" font-size="11" font-weight="500">Funded</text>
+
+  <!-- Row 2 — Initiative B  range [42,74]% point=59%
+       x_low=341  x_high=478  x_pt=414 -->
+  <text x="150" y="95" text-anchor="end" fill="#1a365d" font-size="12" font-weight="600">
+    Initiative B
+  </text>
+  <line x1="341" y1="92" x2="478" y2="92" stroke="#1a365d" stroke-width="2"/>
+  <line x1="341" y1="86" x2="341" y2="98" stroke="#1a365d" stroke-width="2"/>
+  <line x1="478" y1="86" x2="478" y2="98" stroke="#1a365d" stroke-width="2"/>
+  <circle cx="414" cy="92" r="5" fill="#1a365d"/>
+  <text x="610" y="95" fill="#1a365d" font-size="11" font-weight="500">Funded</text>
+
+  <!-- Row 3 — Initiative C  range [34,62]% point=47%
+       x_low=306  x_high=427  x_pt=362 -->
+  <text x="150" y="135" text-anchor="end" fill="#1a365d" font-size="12" font-weight="600">
+    Initiative C
+  </text>
+  <line x1="306" y1="132" x2="427" y2="132" stroke="#1a365d" stroke-width="2"/>
+  <line x1="306" y1="126" x2="306" y2="138" stroke="#1a365d" stroke-width="2"/>
+  <line x1="427" y1="126" x2="427" y2="138" stroke="#1a365d" stroke-width="2"/>
+  <circle cx="362" cy="132" r="5" fill="#1a365d"/>
+  <text x="610" y="135" fill="#1a365d" font-size="11" font-weight="500">Funded</text>
+
+  <!-- ── NOT FUNDED ROWS (gray) ── -->
+
+  <!-- Row 4 — Initiative D  range [26,55]% point=38%
+       x_low=272  x_high=397  x_pt=323 -->
+  <text x="150" y="195" text-anchor="end" fill="#a0aec0" font-size="12" font-weight="600">
+    Initiative D
+  </text>
+  <line x1="272" y1="192" x2="397" y2="192" stroke="#cbd5e0" stroke-width="2"/>
+  <line x1="272" y1="186" x2="272" y2="198" stroke="#cbd5e0" stroke-width="2"/>
+  <line x1="397" y1="186" x2="397" y2="198" stroke="#cbd5e0" stroke-width="2"/>
+  <circle cx="323" cy="192" r="5" fill="white" stroke="#cbd5e0" stroke-width="2"/>
+
+  <!-- Row 5 — Initiative E  range [10,40]% point=24%
+       x_low=203  x_high=332  x_pt=263 -->
+  <text x="150" y="235" text-anchor="end" fill="#a0aec0" font-size="12" font-weight="600">
+    Initiative E
+  </text>
+  <line x1="203" y1="232" x2="332" y2="232" stroke="#cbd5e0" stroke-width="2"/>
+  <line x1="203" y1="226" x2="203" y2="238" stroke="#cbd5e0" stroke-width="2"/>
+  <line x1="332" y1="226" x2="332" y2="238" stroke="#cbd5e0" stroke-width="2"/>
+  <circle cx="263" cy="232" r="5" fill="white" stroke="#cbd5e0" stroke-width="2"/>
+
+</svg>
