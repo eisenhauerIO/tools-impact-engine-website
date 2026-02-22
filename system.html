@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Impact Engine — system architecture: config-driven pipeline of independent, adapter-based components communicating through versioned contracts.">
+    <title>System | Impact Engine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="science.html">Science</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <header>
+                <h1>System</h1>
+                <p class="subtitle">
+                    A config-driven pipeline of independent, adapter-based components
+                    communicating through versioned <code>dict</code> contracts. Each stage
+                    is a separate Python package with its own repository, CI, and release
+                    cycle — wired together by an orchestrator at runtime.
+                </p>
+                <div class="diagram-container">
+                    <img src="img/overview.svg" alt="Pipeline stages: Measure, Evaluate, Allocate, Scale">
+                </div>
+            </header>
+
+            <main>
+                <h2>Design Decisions</h2>
+                <div class="card-grid card-grid-2">
+                    <div class="card">
+                        <h3>Protocol-based interfaces</h3>
+                        <p>
+                            Components satisfy a <code>typing.Protocol</code> — structural
+                            subtyping, not inheritance. Each package defines
+                            <code>PipelineComponent</code> locally. No shared base import,
+                            no circular dependencies, no coupling beyond the method signature.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>Dict boundaries</h3>
+                        <p>
+                            <code>execute()</code> takes and returns a plain <code>dict</code>.
+                            No cross-package type imports. Components are coupled only by
+                            dict key names — making each package independently deployable
+                            and testable.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>Schema versioning</h3>
+                        <p>
+                            Every output dict includes <code>schema_version: "X.Y"</code>.
+                            Consumers validate the major version and fail explicitly on mismatch.
+                            Minor bumps (additive fields) are always safe. Breaking changes
+                            require coordinated major bumps across producer and consumer.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3>Configuration-driven execution</h3>
+                        <p>
+                            A YAML file selects components, parameters, and data sources.
+                            A static registry maps component names to classes; a factory
+                            instantiates from config at runtime. No code changes to run
+                            a different scenario — change the config, re-run.
+                        </p>
+                    </div>
+                </div>
+                <pre><code># Each package defines its own Protocol (no shared import)
+class PipelineComponent(Protocol):
+    def execute(self, event: dict) -> dict: ...
+
+# Registry maps config names → classes
+COMPONENT_REGISTRY = {
+    "Measure": Measure,
+    "Evaluate": Evaluate,
+    "MinimaxRegretAllocate": MinimaxRegretAllocate,
+}</code></pre>
+
+                <h2>Pipeline Architecture</h2>
+                <div class="diagram-container">
+                    <img src="img/pipeline.svg" alt="Pipeline flow showing parallel fan-out per initiative, fan-in at Allocate, and fan-out for selected initiatives">
+                </div>
+                <div class="card-grid card-grid-4">
+                    <div class="card card-compact">
+                        <h3>Measure</h3>
+                        <p>Causal effect estimation. Parallel — one call per initiative.</p>
+                    </div>
+                    <div class="card card-compact">
+                        <h3>Evaluate</h3>
+                        <p>Evidence quality scoring. Parallel — one call per initiative.</p>
+                    </div>
+                    <div class="card card-compact">
+                        <h3>Allocate</h3>
+                        <p>Portfolio optimization. Fan-in — single decision over all initiatives.</p>
+                    </div>
+                    <div class="card card-compact">
+                        <h3>Scale</h3>
+                        <p>Run at production scale. Fan-out — selected initiatives only.</p>
+                    </div>
+                </div>
+                <p>
+                    Each stage is an independent component exposing a single method:
+                    <code>execute(event) &rarr; result</code>. The orchestrator wires them
+                    together using a <code>ThreadPoolExecutor</code> for parallel fan-out,
+                    synchronizes at the fan-in boundary before Allocate, and fans back out
+                    for the selected initiatives.
+                </p>
+
+                <h2>Component Architecture</h2>
+                <p>
+                    Each component follows the same internal pattern. The Measure package
+                    illustrates it: an internal pipeline of Load, Transform, Measure, and
+                    Store — each backed by a pluggable adapter.
+                </p>
+                <div class="diagram-container">
+                    <img src="img/measure-architecture.svg" alt="Measure internal pipeline: Load → Transform → Measure → Store, each backed by an adapter">
+                    <p class="diagram-caption">Measure component: Load → Transform → Measure → Store</p>
+                </div>
+                <p>
+                    <strong>Three-tier adapter pattern.</strong> External libraries (SARIMAX,
+                    statsmodels, PuLP) sit behind thin adapter wrappers that implement a
+                    shared interface — <code>connect</code>, <code>validate</code>,
+                    <code>fit</code>. A manager layer coordinates adapters, handles
+                    dependency injection, and manages storage. The adapter is the only code
+                    that knows about the library; everything above works against the interface.
+                </p>
+                <p>
+                    <strong>Self-registering adapters.</strong> Each adapter registers itself
+                    via a decorator:
+                    <code>@MODEL_REGISTRY.register_decorator("interrupted_time_series")</code>.
+                    Six model adapters are available today. Adding a new one means writing
+                    one adapter class — zero changes to the pipeline, registry, or orchestrator.
+                </p>
+                <p>
+                    <strong>Same pattern across stages.</strong> Allocate follows the identical
+                    structure: an <code>AllocationSolver</code> Protocol with pluggable solvers
+                    (minimax regret, Bayesian), injected into the component via constructor.
+                    Evaluate uses deterministic scoring functions keyed by model type.
+                </p>
+
+                <h2>Agentic Support</h2>
+                <p>
+                    A shared support library
+                    (<a href="https://github.com/eisenhauerIO/utils-agentic-support" target="_blank">utils-agentic-support</a>)
+                    structures AI-assisted development across all packages. Installed as
+                    a git submodule, it provides Claude Code with custom skills, specialized
+                    subagents, and ecosystem-aware templates.
+                </p>
+                <p>
+                    <strong>Conventions as a runtime instruction set.</strong> Each repo's
+                    <code>CLAUDE.md</code> is not documentation — it is an active constraint
+                    on every AI-assisted change. When Claude Code opens any package in the
+                    ecosystem, it reads the dependency graph, naming rules, and interface
+                    contracts before touching a single file. Enforcement does not rely on
+                    humans remembering a style guide; it is embedded in the model's context.
+                    A hierarchical structure propagates shared conventions from the workspace
+                    root down to each component, with repo-specific extensions layered on top.
+                </p>
+                <div class="card-grid card-grid-3">
+                    <div class="card card-compact">
+                        <h3>Skills</h3>
+                        <p>
+                            General-purpose slash commands (feature workflows, code review,
+                            tech debt scanning) and ecosystem-specific ones (package
+                            scaffolding, cross-repo config sync, convention auditing).
+                        </p>
+                    </div>
+                    <div class="card card-compact">
+                        <h3>Subagents</h3>
+                        <p>
+                            Specialized AI agents for code review, architecture evaluation,
+                            cross-boundary consistency checks, documentation generation,
+                            and test writing — each with scoped tool permissions.
+                        </p>
+                    </div>
+                    <div class="card card-compact">
+                        <h3>Templates</h3>
+                        <p>
+                            Feature-type scaffolding for new pipeline components, adapters,
+                            and measurement models. Hierarchical <code>CLAUDE.md</code>
+                            files propagate conventions from workspace to component level.
+                        </p>
+                    </div>
+                </div>
+
+                <a href="index.html" class="back-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Home
+                </a>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

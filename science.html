@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Impact Engine — the science: causal inference, evidence quality assessment, and decision theory.">
+    <title>Science | Impact Engine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="system.html">System</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <header>
+                <h1>Science</h1>
+                <p class="subtitle">
+                    Three questions drive the pipeline. Each maps to a discipline, a stage,
+                    and a concrete output.
+                </p>
+            </header>
+
+            <main>
+                <h2>Causal Inference — What happened?</h2>
+                <p>
+                    When an initiative launches and metrics move, the natural instinct is to
+                    claim credit. But other things changed at the same time — seasonality,
+                    competitor actions, market shifts. The fundamental problem of causal
+                    inference is that you can never observe both worlds: the one where the
+                    intervention happened and the one where it didn't. Every causal method
+                    is a different way to reconstruct that missing counterfactual.
+                </p>
+                <!-- TODO: add counterfactual diagram -->
+                <h3>
+                    <span class="badges">
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/ci.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/docs.yml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/docs.yml/badge.svg?branch=main" alt="Docs"></a>
+                    </span>
+                    Impact Engine — Measure
+                </h3>
+                <p>
+                    The <strong>Impact Engine — Measure</strong> implements five causal
+                    inference methods behind a single interface — from randomized experiments
+                    to synthetic control, interrupted time series, matching, and
+                    subclassification. Swap the method by changing one line in the config.
+                </p>
+
+                <h2>Evidence Assessment — What did we learn?</h2>
+                <p>
+                    How much you trust a causal estimate depends on the method that produced
+                    it. A randomized experiment with thousands of observations produces
+                    stronger evidence than a time series model on sparse data. Evidence
+                    assessment scores each estimate for reliability — creating a calibrated
+                    hierarchy from experimental designs down to approximations.
+                </p>
+                <!-- TODO: add evaluate diagram -->
+                <h3>
+                    <span class="badges">
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/ci.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/docs.yml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/docs.yml/badge.svg?branch=main" alt="Docs"></a>
+                    </span>
+                    Impact Engine — Evaluate
+                </h3>
+                <p>
+                    The <strong>Impact Engine — Evaluate</strong> assigns a confidence score
+                    to each initiative based on its measurement design. That score directly
+                    penalizes return estimates downstream: low confidence pulls returns toward
+                    worst-case scenarios, making the allocator conservative where evidence is
+                    weak and aggressive where evidence is strong.
+                </p>
+
+                <h2>Decision Theory — What should we do?</h2>
+                <p>
+                    Knowing what works is not enough — you must decide where to invest under
+                    constraints and uncertainty. Decision theory frames this as a portfolio
+                    optimization problem: select the set of initiatives that maximizes
+                    returns across scenarios while respecting budget and strategic constraints.
+                </p>
+                <!-- TODO: add allocate diagram -->
+                <h3>
+                    <span class="badges">
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/ci.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/docs.yml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/docs.yml/badge.svg?branch=main" alt="Docs"></a>
+                    </span>
+                    Impact Engine — Allocate
+                </h3>
+                <p>
+                    The <strong>Impact Engine — Allocate</strong> solves this with two
+                    pluggable decision rules. Minimax regret minimizes the maximum regret
+                    across all scenarios. A Bayesian solver maximizes expected return under
+                    user-specified scenario weights. Both consume confidence-penalized
+                    returns — better evidence enables better bets.
+                </p>
+
+                <a href="index.html" class="back-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Home
+                </a>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

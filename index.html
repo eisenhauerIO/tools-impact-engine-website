@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Impact Engine — science alone doesn't create value. Productionizing, automating, and scaling it does.">
+    <title>Impact Engine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="science.html">Science</a></li>
+                <li><a href="system.html">System</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <header>
+                <h1>Impact Engine</h1>
+                <p class="tagline">
+                    Science alone doesn't create value. Productionizing, automating, and scaling it does.
+                </p>
+                <p class="subtitle">
+                    Organizations invest in dozens of initiatives but rarely know which ones
+                    moved the needle. Impact Engine closes the loop — it measures causal impact,
+                    scores evidence quality, optimizes resource allocation, and repeats every cycle.
+                    Built, tested, and deployed as
+                    an open-source Python ecosystem by <a href="https://peisenha.github.io" target="_blank">Philipp Eisenhauer</a>.
+                </p>
+            </header>
+
+            <main>
+                <h2>Decision Loop</h2>
+                <p>
+                    Start with a cohort of candidate initiatives and run small-scale pilots.
+                    <strong>Measure</strong> the causal effect of each pilot.
+                    <strong>Evaluate</strong> how much to trust each estimate based on
+                    methodological rigor and remaining uncertainty.
+                    <strong>Allocate</strong> budget to the most promising initiatives
+                    through constrained portfolio optimization.
+                    <strong>Scale</strong> the winners, monitor their performance, and feed the
+                    learnings back into the next cycle.
+                </p>
+                <div class="diagram-container">
+                    <img src="img/pipeline-index.svg" alt="Pipeline flow: Measure → Evaluate → Allocate → Scale">
+                </div>
+                <p>
+                    The <strong>Impact Engine</strong> runs this loop in a single call. Pass a
+                    <code>YAML</code> config with your initiatives and budget,
+                    and it executes all four stages — pilot measurement, evidence
+                    scoring, portfolio selection, and scaled re-measurement —
+                    returning structured results for each.
+                </p>
+                <pre><code>from impact_engine_orchestrator import load_config, Orchestrator
+
+config = load_config("config.yaml")
+engine = Orchestrator.from_config(config)
+result = engine.run()
+
+# result keys map to each stage:
+#   pilot_results    → per-initiative causal effect estimates
+#   evaluate_results → confidence scores by methodology
+#   allocate_result  → portfolio selection under budget
+#   outcome_reports  → predicted vs. actual after scaling</code></pre>
+                <p>
+                    <a href="https://eisenhauerio.github.io/tools-impact-engine-orchestrator/impact-loop/tutorial.html" target="_blank">Walk through a full pipeline run &rarr;</a>
+                </p>
+
+                <h2>Source Codes</h2>
+                <div class="card-grid card-grid-3">
+                    <a href="https://github.com/eisenhauerIO/tools-impact-engine-measure" class="card card-compact" target="_blank">
+                        <h3>Measure</h3>
+                        <p>Causal impact estimation</p>
+                        <img src="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/ci.yaml/badge.svg" alt="CI" class="badge">
+                    </a>
+                    <a href="https://github.com/eisenhauerIO/tools-impact-engine-evaluate" class="card card-compact" target="_blank">
+                        <h3>Evaluate</h3>
+                        <p>Evidence quality scoring</p>
+                        <img src="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/ci.yaml/badge.svg" alt="CI" class="badge">
+                    </a>
+                    <a href="https://github.com/eisenhauerIO/tools-impact-engine-allocate" class="card card-compact" target="_blank">
+                        <h3>Allocate</h3>
+                        <p>Constrained portfolio optimization</p>
+                        <img src="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/ci.yaml/badge.svg" alt="CI" class="badge">
+                    </a>
+                </div>
+
+                <h2>Deep Dives</h2>
+                <div class="card-grid card-grid-2">
+                    <a href="science.html" class="card card-compact">
+                        <h3>Science</h3>
+                        <p>Causal inference, evidence scoring, and decision theory</p>
+                    </a>
+                    <a href="system.html" class="card card-compact">
+                        <h3>System</h3>
+                        <p>Architecture and design principles</p>
+                    </a>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
