@@ -155,6 +155,14 @@ h3 {
     color: var(--accent-color);
 }
 
+h4 {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
 h4 .badges {
     display: inline-flex;
     gap: 8px;
