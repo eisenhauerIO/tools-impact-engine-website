@@ -1,58 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 220"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 265"
      font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif">
 
   <!-- Column headers -->
-  <text x="220" y="28" text-anchor="end" fill="#4a5568" font-size="11"
+  <text x="220" y="22" text-anchor="end" fill="#4a5568" font-size="11"
         font-weight="500" letter-spacing="0.3">METHOD</text>
-  <text x="236" y="28" fill="#4a5568" font-size="11"
-        font-weight="500" letter-spacing="0.3">CONFIDENCE</text>
+  <text x="236" y="22" fill="#4a5568" font-size="11"
+        font-weight="500" letter-spacing="0.3">CONFIDENCE RANGE</text>
 
-  <!-- Thin header divider -->
-  <line x1="20" y1="36" x2="680" y2="36" stroke="#e2e8f0" stroke-width="1"/>
+  <!-- Diagnostic quality axis hint -->
+  <text x="236" y="35" fill="#a0aec0" font-size="9" font-style="italic">poor diagnostics</text>
+  <text x="606" y="35" text-anchor="end" fill="#a0aec0" font-size="9" font-style="italic">strong diagnostics</text>
 
-  <!-- ── Row 1: Randomised Experiment ── -->
-  <text x="220" y="72" text-anchor="end" fill="#1a365d" font-size="12" font-weight="600">
+  <!-- Header divider -->
+  <line x1="20" y1="42" x2="680" y2="42" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- ── Row 1: Randomized Experiment  range [0.70, 0.95], typical 0.83 ──
+       x_min = 236 + 0.70*370 = 495
+       x_max = 236 + 0.95*370 = 588   range_width = 93
+       x_typical = 236 + 0.83*370 = 543 -->
+  <text x="220" y="75" text-anchor="end" fill="#1a365d" font-size="12" font-weight="600">
     Randomized Experiment
   </text>
-  <!-- track -->
   <rect x="236" y="58" width="370" height="24" rx="4" fill="#edf2f7"/>
-  <!-- bar (0.95 × 370 = 352) -->
-  <rect x="236" y="58" width="352" height="24" rx="4" fill="#1a365d"/>
-  <!-- score -->
-  <text x="614" y="75" fill="#1a365d" font-size="12" font-weight="600">0.95</text>
+  <rect x="495" y="58" width="93"  height="24" rx="4" fill="#1a365d" fill-opacity="0.25"/>
+  <line x1="543" y1="54" x2="543" y2="86" stroke="#1a365d" stroke-width="2.5"/>
+  <text x="614" y="75" fill="#1a365d" font-size="11" font-weight="600">0.70 – 0.95</text>
 
-  <!-- ── Row 2: Difference-in-Differences ── -->
-  <text x="220" y="118" text-anchor="end" fill="#2c5282" font-size="12" font-weight="600">
+  <!-- ── Row 2: Difference-in-Differences  range [0.50, 0.80], typical 0.65 ──
+       x_min = 236 + 0.50*370 = 421
+       x_max = 236 + 0.80*370 = 532   range_width = 111
+       x_typical = 236 + 0.65*370 = 477 -->
+  <text x="220" y="121" text-anchor="end" fill="#2c5282" font-size="12" font-weight="600">
     Difference-in-Differences
   </text>
-  <!-- track -->
   <rect x="236" y="104" width="370" height="24" rx="4" fill="#edf2f7"/>
-  <!-- bar (0.75 × 370 = 278) -->
-  <rect x="236" y="104" width="278" height="24" rx="4" fill="#2c5282"/>
-  <!-- score -->
-  <text x="614" y="121" fill="#2c5282" font-size="12" font-weight="600">0.75</text>
+  <rect x="421" y="104" width="111" height="24" rx="4" fill="#2c5282" fill-opacity="0.25"/>
+  <line x1="477" y1="100" x2="477" y2="132" stroke="#2c5282" stroke-width="2.5"/>
+  <text x="614" y="121" fill="#2c5282" font-size="11" font-weight="600">0.50 – 0.80</text>
 
-  <!-- ── Row 3: Synthetic Control ── -->
-  <text x="220" y="164" text-anchor="end" fill="#4a6fa5" font-size="12" font-weight="600">
+  <!-- ── Row 3: Synthetic Control  range [0.35, 0.70], typical 0.53 ──
+       x_min = 236 + 0.35*370 = 366
+       x_max = 236 + 0.70*370 = 495   range_width = 130
+       x_typical = 236 + 0.53*370 = 432 -->
+  <text x="220" y="167" text-anchor="end" fill="#4a6fa5" font-size="12" font-weight="600">
     Synthetic Control
   </text>
-  <!-- track -->
   <rect x="236" y="150" width="370" height="24" rx="4" fill="#edf2f7"/>
-  <!-- bar (0.65 × 370 = 241) -->
-  <rect x="236" y="150" width="241" height="24" rx="4" fill="#4a6fa5"/>
-  <!-- score -->
-  <text x="614" y="167" fill="#4a6fa5" font-size="12" font-weight="600">0.65</text>
+  <rect x="366" y="150" width="130" height="24" rx="4" fill="#4a6fa5" fill-opacity="0.25"/>
+  <line x1="432" y1="146" x2="432" y2="178" stroke="#4a6fa5" stroke-width="2.5"/>
+  <text x="614" y="167" fill="#4a6fa5" font-size="11" font-weight="600">0.35 – 0.70</text>
 
-  <!-- ── Row 4: Time Series (ARIMA) ── -->
-  <text x="220" y="210" text-anchor="end" fill="#718096" font-size="12" font-weight="600">
+  <!-- ── Row 4: Time Series (ARIMA)  range [0.20, 0.50], typical 0.35 ──
+       x_min = 236 + 0.20*370 = 310
+       x_max = 236 + 0.50*370 = 421   range_width = 111
+       x_typical = 236 + 0.35*370 = 366 -->
+  <text x="220" y="213" text-anchor="end" fill="#718096" font-size="12" font-weight="600">
     Time Series (ARIMA)
   </text>
-  <!-- track -->
   <rect x="236" y="196" width="370" height="24" rx="4" fill="#edf2f7"/>
-  <!-- bar (0.45 × 370 = 167) -->
-  <rect x="236" y="196" width="167" height="24" rx="4" fill="#a0aec0"/>
-  <!-- score -->
-  <text x="614" y="213" fill="#718096" font-size="12" font-weight="600">0.45</text>
+  <rect x="310" y="196" width="111" height="24" rx="4" fill="#718096" fill-opacity="0.25"/>
+  <line x1="366" y1="192" x2="366" y2="224" stroke="#718096" stroke-width="2.5"/>
+  <text x="614" y="213" fill="#718096" font-size="11" font-weight="600">0.20 – 0.50</text>
+
+  <!-- Legend -->
+  <line x1="236" y1="240" x2="236" y2="252" stroke="#4a5568" stroke-width="2.5"/>
+  <text x="242" y="250" fill="#718096" font-size="9">typical score</text>
+  <rect x="302" y="241" width="28" height="11" rx="2" fill="#718096" fill-opacity="0.25"/>
+  <text x="336" y="250" fill="#718096" font-size="9">range from diagnostics</text>
 
 </svg>
