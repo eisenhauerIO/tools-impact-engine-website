@@ -28,12 +28,12 @@
                 </p>
                 <p class="subtitle">
                     <a href="https://peisenha.github.io" target="_blank">Philipp Eisenhauer</a>
-                    works at the intersection of causal inference, production engineering,
+                    works at the intersection of science, production engineering,
                     and decision-making. His operating principle —
                     <a href="https://peisenha.github.io/operating-principles.html" target="_blank">Learn · Decide · Repeat</a>
                     — drives everything he builds.
                     Impact Engine is that principle made concrete: an open-source Python
-                    ecosystem that measures causal impact, scores evidence quality, and
+                    ecosystem that measures impact, scores evidence quality, and
                     optimizes resource allocation in a repeating decision loop.
                 </p>
             </header>
@@ -42,7 +42,7 @@
                 <h2>Decision Loop</h2>
                 <p>
                     Start with a cohort of candidate initiatives and run small-scale pilots.
-                    <strong>Measure</strong> the causal effect of each pilot.
+                    <strong>Measure</strong> the impact of each pilot.
                     <strong>Evaluate</strong> how much to trust each estimate based on
                     methodological rigor and remaining uncertainty.
                     <strong>Allocate</strong> budget to the most promising initiatives
@@ -67,7 +67,7 @@ engine = Orchestrator.from_config(config)
 result = engine.run()
 
 # result keys map to each stage:
-#   pilot_results    → per-initiative causal effect estimates
+#   pilot_results    → per-initiative impact estimates
 #   evaluate_results → confidence scores by methodology
 #   allocate_result  → portfolio selection under budget
 #   outcome_reports  → predicted vs. actual after scaling</code></pre>
@@ -85,17 +85,17 @@ result = engine.run()
                     composing the full pipeline tomorrow.
                 </p>
                 <div class="card-grid card-grid-3">
-                    <a href="https://github.com/eisenhauerIO/tools-impact-engine-measure" class="card card-compact" target="_blank">
+                    <a href="https://eisenhauerio.github.io/tools-impact-engine-measure" class="card card-compact" target="_blank">
                         <h3>Measure</h3>
-                        <p>Causal impact estimation</p>
+                        <p>Impact measurement</p>
                         <img src="https://github.com/eisenhauerIO/tools-impact-engine-measure/actions/workflows/ci.yaml/badge.svg" alt="CI" class="badge">
                     </a>
-                    <a href="https://github.com/eisenhauerIO/tools-impact-engine-evaluate" class="card card-compact" target="_blank">
+                    <a href="https://eisenhauerio.github.io/tools-impact-engine-evaluate" class="card card-compact" target="_blank">
                         <h3>Evaluate</h3>
                         <p>Evidence quality scoring</p>
                         <img src="https://github.com/eisenhauerIO/tools-impact-engine-evaluate/actions/workflows/ci.yaml/badge.svg" alt="CI" class="badge">
                     </a>
-                    <a href="https://github.com/eisenhauerIO/tools-impact-engine-allocate" class="card card-compact" target="_blank">
+                    <a href="https://eisenhauerio.github.io/tools-impact-engine-allocate" class="card card-compact" target="_blank">
                         <h3>Allocate</h3>
                         <p>Constrained portfolio optimization</p>
                         <img src="https://github.com/eisenhauerIO/tools-impact-engine-allocate/actions/workflows/ci.yaml/badge.svg" alt="CI" class="badge">
@@ -106,7 +106,7 @@ result = engine.run()
                 <div class="card-grid card-grid-2">
                     <a href="science.html" class="card card-compact">
                         <h3>Science</h3>
-                        <p>Causal inference, evidence scoring, and decision theory</p>
+                        <p>Measurement methodology, evidence scoring, and decision theory</p>
                     </a>
                     <a href="system.html" class="card card-compact">
                         <h3>System</h3>
