@@ -235,6 +235,23 @@ a:hover {
     border-bottom-color: var(--accent-color);
 }
 
+/* Epigraph (quote under page title) */
+
+.epigraph {
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 1.3em;
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 6px;
+    line-height: 1.8;
+}
+
+.epigraph-author {
+    font-size: 0.95em;
+    color: var(--text-light);
+    margin-bottom: 25px;
+}
+
 /* Tagline (italic serif intro) */
 
 .tagline {
