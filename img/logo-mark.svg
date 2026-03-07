@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 13 84 84" width="84" height="84">
+  <!-- Cycle mark extracted from Impact Engine logo -->
+
+  <!-- Arc Top→Right -->
+  <path d="M 71 27 Q 88 27 88 44" fill="none" stroke="#4a90d9" stroke-width="1.8" opacity="0.85" stroke-linecap="round"/>
+  <polygon points="88,46 84,39 92,39" fill="#4a90d9" opacity="0.9"/>
+  <!-- Arc Right→Bottom -->
+  <path d="M 88 66 Q 88 83 71 83" fill="none" stroke="#5ab87a" stroke-width="1.8" opacity="0.85" stroke-linecap="round"/>
+  <polygon points="69,83 76,79 76,87" fill="#5ab87a" opacity="0.9"/>
+  <!-- Arc Bottom→Left -->
+  <path d="M 49 83 Q 32 83 32 66" fill="none" stroke="#e8a23c" stroke-width="1.8" opacity="0.85" stroke-linecap="round"/>
+  <polygon points="32,64 28,71 36,71" fill="#e8a23c" opacity="0.9"/>
+  <!-- Arc Left→Top -->
+  <path d="M 32 44 Q 32 27 49 27" fill="none" stroke="#d46b8a" stroke-width="1.8" opacity="0.85" stroke-linecap="round"/>
+  <polygon points="51,27 44,23 44,31" fill="#d46b8a" opacity="0.9"/>
+
+  <!-- Nodes -->
+  <circle cx="60" cy="27" r="11" fill="none" stroke="#4a90d9" stroke-width="1.8"/>
+  <circle cx="60" cy="27" r="4" fill="#4a90d9"/>
+  <circle cx="88" cy="55" r="11" fill="none" stroke="#5ab87a" stroke-width="1.8"/>
+  <circle cx="88" cy="55" r="4" fill="#5ab87a"/>
+  <circle cx="60" cy="83" r="11" fill="none" stroke="#e8a23c" stroke-width="1.8"/>
+  <circle cx="60" cy="83" r="4" fill="#e8a23c"/>
+  <circle cx="32" cy="55" r="11" fill="none" stroke="#d46b8a" stroke-width="1.8"/>
+  <circle cx="32" cy="55" r="4" fill="#d46b8a"/>
+</svg>

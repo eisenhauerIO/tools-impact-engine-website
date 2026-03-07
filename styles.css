@@ -121,6 +121,26 @@ header::after {
     background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
 }
 
+/* Header logo lockup */
+
+.header-logo {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.header-logo img {
+    max-width: 800px;
+    width: 85%;
+    height: auto;
+    display: inline-block;
+}
+
+@media (max-width: 480px) {
+    .header-logo img {
+        max-width: 280px;
+    }
+}
+
 /* Typography */
 
 h1 {
