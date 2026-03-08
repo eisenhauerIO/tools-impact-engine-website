@@ -594,6 +594,31 @@ section {
     line-height: 1.6;
 }
 
+/* Inline logo mark + brand wordmark */
+
+.logo-inline {
+    height: 1em;
+    width: auto;
+    vertical-align: -0.15em;
+    display: inline;
+    margin-right: 0.15em;
+}
+
+.brand-impact-engine {
+    font-family: 'Crimson Pro', Georgia, serif;
+    color: var(--primary-color);
+}
+
+.brand-impact {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.brand-engine {
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
 /* Animation */
 
 @keyframes fadeIn {
