@@ -58,25 +58,38 @@
                     </div>
                 </div>
                 <p>
-                    The <strong>Impact Engine</strong> runs this loop in a single call. Pass a
-                    <code>YAML</code> config with your initiatives and budget,
-                    and it executes all four stages — pilot measurement, evidence
-                    scoring, portfolio selection, and scaled re-measurement —
-                    returning structured results for each.
+                    The <a href="https://eisenhauerio.github.io/tools-impact-engine-orchestrator" target="_blank"><strong>Impact Engine — Orchestrator</strong></a>
+                    runs this loop from a single config file. It names the initiatives under
+                    consideration, sets the total budget, and picks the allocation rule. Each
+                    initiative carries a <code>measure_config</code> — a YAML file that specifies
+                    the impact measurement approach tailored to that initiative: which causal model
+                    to apply, what data to draw from, and how to set up the experiment.
                 </p>
-                <pre><code>from impact_engine_orchestrator import load_config, Orchestrator
+                <span class="code-label">pipeline.yaml</span>
+                <pre><code>budget: 100000
+storage_url: ./data/measure
 
-config = load_config("config.yaml")
-engine = Orchestrator.from_config(config)
-result = engine.run()
+ALLOCATE:
+  rule: minimax_regret
 
-# result keys map to each stage:
-#   pilot_results    → per-initiative impact estimates
-#   evaluate_results → confidence scores by methodology
-#   allocate_result  → portfolio selection under budget
-#   outcome_reports  → predicted vs. actual after scaling</code></pre>
+INITIATIVES:
+  - initiative_id: product-desc-enhancement
+    cost_to_scale: 15000
+    measure_config: configs/product-desc-enhancement.yaml
+  - initiative_id: checkout-flow-optimization
+    cost_to_scale: 25000
+    measure_config: configs/checkout-flow-optimization.yaml</code></pre>
                 <p>
-                    <a href="https://eisenhauerio.github.io/tools-impact-engine-orchestrator/impact-loop/tutorial.html" target="_blank">Walk through a full pipeline run &rarr;</a>
+                    Passing the config to <code>run_pipeline()</code> executes all four stages in
+                    sequence — pilot measurement, evidence scoring, portfolio selection, and scaled
+                    re-measurement — and returns structured results for each.
+                </p>
+                <span class="code-label">run.py</span>
+                <pre><code>from impact_engine_orchestrator import run_pipeline
+
+result = run_pipeline("pipeline.yaml")</code></pre>
+                <p>
+                    <a href="https://eisenhauerio.github.io/tools-impact-engine-orchestrator/impact-loop/impact-loop.html" target="_blank">Walk through a full pipeline run &rarr;</a>
                 </p>
 
                 <h2>Source Codes</h2>

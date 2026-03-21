@@ -232,6 +232,15 @@ pre {
     line-height: 1.6;
 }
 
+.code-label {
+    display: block;
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', Menlo, monospace;
+    font-size: 0.75em;
+    color: var(--text-light);
+    letter-spacing: 0.03em;
+    margin-bottom: 4px;
+}
+
 pre code {
     font-family: 'SF Mono', 'Fira Code', 'Fira Mono', Menlo, monospace;
     color: var(--text-color);
