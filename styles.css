@@ -128,7 +128,8 @@ header::after {
     text-align: center;
 }
 
-.header-logo img {
+.header-logo img,
+.header-logo svg {
     max-width: 800px;
     width: 85%;
     height: auto;
@@ -136,7 +137,8 @@ header::after {
 }
 
 @media (max-width: 480px) {
-    .header-logo img {
+    .header-logo img,
+    .header-logo svg {
         max-width: 280px;
     }
 }
@@ -266,6 +268,13 @@ a:hover {
 
 /* Epigraph (quote under page title) */
 
+.epigraph-block {
+    position: relative;
+    border-left: 3px solid var(--accent-color);
+    padding-left: 24px;
+    margin: 30px 0 25px;
+}
+
 .epigraph {
     font-family: 'Crimson Pro', Georgia, serif;
     font-size: 1.3em;
@@ -278,7 +287,7 @@ a:hover {
 .epigraph-author {
     font-size: 0.95em;
     color: var(--text-light);
-    margin-bottom: 25px;
+    margin-bottom: 0;
 }
 
 /* Tagline (italic serif intro) */
@@ -384,8 +393,9 @@ a:hover {
 }
 
 .badge {
-    display: block;
+    display: inline-block;
     margin-top: 10px;
+    margin-right: 6px;
     height: 20px;
 }
 

@@ -1,3 +1,22 @@
+// Align the header logo tagline and divider to the title's rendered width.
+document.addEventListener("DOMContentLoaded", function () {
+    function alignLogo() {
+        var title = document.getElementById("logo-title");
+        var divider = document.getElementById("logo-divider");
+        var tagline = document.getElementById("logo-tagline");
+        if (!title || !divider || !tagline) return;
+        var bbox = title.getBBox();
+        var rightEdge = bbox.x + bbox.width;
+        divider.setAttribute("x2", rightEdge);
+        tagline.setAttribute("textLength", rightEdge - 118);
+    }
+    if (document.fonts) {
+        document.fonts.ready.then(alignLogo);
+    } else {
+        alignLogo();
+    }
+});
+
 // Automatically prepend the Impact Engine logo mark before every
 // visible "Impact Engine" text inside .content elements.
 document.addEventListener("DOMContentLoaded", function () {

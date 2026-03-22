@@ -23,9 +23,11 @@
 
         <div class="content">
             <header>
-                <h1>System</h1>
-                <p class="epigraph">"What I cannot create, I do not understand."</p>
-                <p class="epigraph-author">— Richard Feynman</p>
+                <h1><strong>Impact Engine</strong> — System</h1>
+                <div class="epigraph-block">
+                    <p class="epigraph">"What I cannot create, I do not understand."</p>
+                    <p class="epigraph-author">— Richard Feynman</p>
+                </div>
                 <p class="subtitle">
                     A config-driven pipeline of independent, adapter-based components
                     communicating through versioned <code>dict</code> contracts. Each stage
@@ -70,53 +72,37 @@
                     <div class="section-text">
                         <p>
                             Every stage follows the same internal pattern: external libraries
-                            sit behind thin adapters that self-register with a decorator.
+                            sit behind thin adapters that self-register with a registry.
                             Adding a new causal model, decision rule, or scoring function means
-                            one new class, zero pipeline changes.
+                            one new class, zero pipeline changes. Components communicate through
+                            plain <code>dict</code> boundaries — no cross-package type imports,
+                            no shared base classes — so each package is independently deployable
+                            and testable.
                         </p>
                     </div>
                     <div class="section-image" style="max-width: 420px;">
-                        <img src="img/measure-architecture.svg"
-                             alt="Measure internal pipeline: Load → Transform → Measure → Store, each backed by a pluggable adapter">
-                        <p class="diagram-caption">Each stage is a pipeline of pluggable adapters. Swap one without touching the rest.</p>
+                        <img src="img/measure-overview.svg"
+                             alt="Measure component extension groups — Data Sources, Impact Engine core, Model Adapters, Data Storage — each with concrete implementations and a Custom slot">
+                        <p class="diagram-caption">The Measure component illustrates the pattern: four registries, each with a Custom slot. Evaluate and Allocate follow the same structure.</p>
                     </div>
                 </div>
-                <pre><code># One interface, one registry, one decorator
-@MODEL_REGISTRY.register_decorator("interrupted_time_series")
-class InterruptedTimeSeries(ModelInterface):
-    def fit(self, data): ...</code></pre>
-                <p>
-                    Components communicate through plain <code>dict</code> boundaries —
-                    no cross-package type imports, no shared base classes. Each package is
-                    independently deployable and testable. A YAML config selects which
-                    components to wire together; changing the scenario means changing the
-                    config, not the code.
-                </p>
 
                 <h2>Agentic Support — How is it built?</h2>
-                <div class="section-flex">
-                    <div class="section-image" style="max-width: 420px;">
-                        <img src="img/overview.svg"
-                             alt="Four packages, each with its own CLAUDE.md, connected by shared conventions">
-                        <p class="diagram-caption">Conventions propagate from workspace root to each component. The AI reads the rules before touching a file.</p>
-                    </div>
-                    <div class="section-text">
-                        <p>
-                            A system that requires its builder to enforce every convention
-                            creates a dependency. Each repo's <code>CLAUDE.md</code> is not
-                            documentation — it is a runtime constraint on every AI-assisted
-                            change: dependency graph, naming rules, interface contracts, all
-                            read before a single file is touched.
-                        </p>
-                    </div>
-                </div>
-                <h4>Agentic Support</h4>
                 <p>
-                    A shared library (<a href="https://github.com/eisenhauerIO/utils-agentic-support" target="_blank"><strong>utils-agentic-support</strong></a>),
-                    installed as a git submodule across all packages, supplies skills,
-                    subagents, and templates. Enforcement does not rely on humans
-                    remembering a style guide — it is embedded in the model's context,
-                    so the system can extend without its architect in the loop.
+                    The entire ecosystem is built through agent-driven development with
+                    <a href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank">Claude Code</a>.
+                    Every repo carries a hierarchical <code>CLAUDE.md</code> that encodes
+                    the dependency graph, naming conventions, interface contracts, and
+                    verification protocols. A workspace-level file propagates shared rules
+                    to all components; each repo layers its own architecture and design
+                    decisions on top. When Claude Code opens any package, it reads these
+                    constraints before touching a single file — the conventions are not
+                    documentation to remember but runtime instructions the agent follows.
+                    Shared skills handle cross-repo workflows like convention auditing,
+                    package scaffolding, and config synchronization. The result is an
+                    ecosystem where every commit — across four independent repositories —
+                    passes lint, tests, and pre-commit hooks before it lands, whether a
+                    human or an AI made the change.
                 </p>
 
                 <hr>
@@ -137,7 +123,7 @@ class InterruptedTimeSeries(ModelInterface):
                 <h4>Agentic Support</h4>
                 <div class="reading-list">
                     <p>Anthropic — <em>Building Effective Agents</em> (Anthropic Blog, 2024)</p>
-                    <p>S. Kwatra, H. Wimberly, J. Marker &amp; E. Siegel — <em>Eval-Driven System Design: From Prototype to Production</em> (OpenAI Cookbook, 2025)</p>
+                    <p>R. Jansen — <em>Agent-Driven Development: The Next Paradigm Shift in Software Engineering</em> (DEV Community, 2025)</p>
                 </div>
 
                 <a href="index.html" class="back-link">
