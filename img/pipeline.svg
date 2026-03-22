@@ -29,19 +29,19 @@
 
     <!-- MEASURE Stage -->
     <g data-cell-id="measure-group">
-      <path d="M 295 30 L 295 13.5 Q 295 0 281.5 0 L 188.5 0 Q 175 0 175 13.5 L 175 30" fill="#dae8fc" stroke="#6c8ebf" stroke-miterlimit="10" style="fill: light-dark(rgb(218, 232, 252), rgb(29, 41, 59)); stroke: light-dark(rgb(108, 142, 191), rgb(92, 121, 163));"/>
-      <path d="M 175 30 L 175 116.5 Q 175 130 188.5 130 L 281.5 130 Q 295 130 295 116.5 L 295 30" fill="none" stroke="#6c8ebf" stroke-miterlimit="10" style="stroke: light-dark(rgb(108, 142, 191), rgb(92, 121, 163));"/>
-      <path d="M 175 30 L 295 30" fill="none" stroke="#6c8ebf" stroke-miterlimit="10" style="stroke: light-dark(rgb(108, 142, 191), rgb(92, 121, 163));"/>
+      <path d="M 295 30 L 295 13.5 Q 295 0 281.5 0 L 188.5 0 Q 175 0 175 13.5 L 175 30" fill="#e3eef9" stroke="#4a90d9" stroke-miterlimit="10" style="fill: light-dark(rgb(227, 238, 249), rgb(29, 41, 59)); stroke: light-dark(rgb(74, 144, 217), rgb(55, 108, 170));"/>
+      <path d="M 175 30 L 175 116.5 Q 175 130 188.5 130 L 281.5 130 Q 295 130 295 116.5 L 295 30" fill="none" stroke="#4a90d9" stroke-miterlimit="10" style="stroke: light-dark(rgb(74, 144, 217), rgb(55, 108, 170));"/>
+      <path d="M 175 30 L 295 30" fill="none" stroke="#4a90d9" stroke-miterlimit="10" style="stroke: light-dark(rgb(74, 144, 217), rgb(55, 108, 170));"/>
       <text x="235" y="20" fill="#000000" font-family="Helvetica" font-weight="bold" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">MEASURE</text>
 
       <!-- Parallel processing indicators -->
-      <rect x="190" y="45" width="90" height="20" rx="3" ry="3" fill="#dae8fc" stroke="#6c8ebf" style="fill: light-dark(rgb(218, 232, 252), rgb(29, 41, 59)); stroke: light-dark(rgb(108, 142, 191), rgb(92, 121, 163));"/>
+      <rect x="190" y="45" width="90" height="20" rx="3" ry="3" fill="#e3eef9" stroke="#4a90d9" style="fill: light-dark(rgb(227, 238, 249), rgb(29, 41, 59)); stroke: light-dark(rgb(74, 144, 217), rgb(55, 108, 170));"/>
       <text x="235" y="59" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">A</text>
 
-      <rect x="190" y="70" width="90" height="20" rx="3" ry="3" fill="#dae8fc" stroke="#6c8ebf" style="fill: light-dark(rgb(218, 232, 252), rgb(29, 41, 59)); stroke: light-dark(rgb(108, 142, 191), rgb(92, 121, 163));"/>
+      <rect x="190" y="70" width="90" height="20" rx="3" ry="3" fill="#e3eef9" stroke="#4a90d9" style="fill: light-dark(rgb(227, 238, 249), rgb(29, 41, 59)); stroke: light-dark(rgb(74, 144, 217), rgb(55, 108, 170));"/>
       <text x="235" y="84" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">B</text>
 
-      <rect x="190" y="95" width="90" height="20" rx="3" ry="3" fill="#dae8fc" stroke="#6c8ebf" style="fill: light-dark(rgb(218, 232, 252), rgb(29, 41, 59)); stroke: light-dark(rgb(108, 142, 191), rgb(92, 121, 163));"/>
+      <rect x="190" y="95" width="90" height="20" rx="3" ry="3" fill="#e3eef9" stroke="#4a90d9" style="fill: light-dark(rgb(227, 238, 249), rgb(29, 41, 59)); stroke: light-dark(rgb(74, 144, 217), rgb(55, 108, 170));"/>
       <text x="235" y="109" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">C</text>
     </g>
 
@@ -53,19 +53,19 @@
 
     <!-- EVALUATE Stage -->
     <g data-cell-id="evaluate-group">
-      <path d="M 450 30 L 450 13.5 Q 450 0 436.5 0 L 343.5 0 Q 330 0 330 13.5 L 330 30" fill="#d5e8d4" stroke="#82b366" stroke-miterlimit="10" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
-      <path d="M 330 30 L 330 116.5 Q 330 130 343.5 130 L 436.5 130 Q 450 130 450 116.5 L 450 30" fill="none" stroke="#82b366" stroke-miterlimit="10" style="stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
-      <path d="M 330 30 L 450 30" fill="none" stroke="#82b366" stroke-miterlimit="10" style="stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
+      <path d="M 450 30 L 450 13.5 Q 450 0 436.5 0 L 343.5 0 Q 330 0 330 13.5 L 330 30" fill="#e4f3e9" stroke="#5ab87a" stroke-miterlimit="10" style="fill: light-dark(rgb(228, 243, 233), rgb(31, 47, 30)); stroke: light-dark(rgb(90, 184, 122), rgb(45, 120, 65));"/>
+      <path d="M 330 30 L 330 116.5 Q 330 130 343.5 130 L 436.5 130 Q 450 130 450 116.5 L 450 30" fill="none" stroke="#5ab87a" stroke-miterlimit="10" style="stroke: light-dark(rgb(90, 184, 122), rgb(45, 120, 65));"/>
+      <path d="M 330 30 L 450 30" fill="none" stroke="#5ab87a" stroke-miterlimit="10" style="stroke: light-dark(rgb(90, 184, 122), rgb(45, 120, 65));"/>
       <text x="390" y="20" fill="#000000" font-family="Helvetica" font-weight="bold" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">EVALUATE</text>
 
       <!-- Parallel processing indicators -->
-      <rect x="345" y="45" width="90" height="20" rx="3" ry="3" fill="#d5e8d4" stroke="#82b366" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
+      <rect x="345" y="45" width="90" height="20" rx="3" ry="3" fill="#e4f3e9" stroke="#5ab87a" style="fill: light-dark(rgb(228, 243, 233), rgb(31, 47, 30)); stroke: light-dark(rgb(90, 184, 122), rgb(45, 120, 65));"/>
       <text x="390" y="59" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">A</text>
 
-      <rect x="345" y="70" width="90" height="20" rx="3" ry="3" fill="#d5e8d4" stroke="#82b366" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
+      <rect x="345" y="70" width="90" height="20" rx="3" ry="3" fill="#e4f3e9" stroke="#5ab87a" style="fill: light-dark(rgb(228, 243, 233), rgb(31, 47, 30)); stroke: light-dark(rgb(90, 184, 122), rgb(45, 120, 65));"/>
       <text x="390" y="84" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">B</text>
 
-      <rect x="345" y="95" width="90" height="20" rx="3" ry="3" fill="#d5e8d4" stroke="#82b366" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
+      <rect x="345" y="95" width="90" height="20" rx="3" ry="3" fill="#e4f3e9" stroke="#5ab87a" style="fill: light-dark(rgb(228, 243, 233), rgb(31, 47, 30)); stroke: light-dark(rgb(90, 184, 122), rgb(45, 120, 65));"/>
       <text x="390" y="109" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">C</text>
     </g>
 
@@ -77,7 +77,7 @@
 
     <!-- ALLOCATE Stage (single) -->
     <g data-cell-id="allocate-group">
-      <rect x="485" y="30" width="120" height="70" rx="7.5" ry="7.5" fill="#fff2cc" stroke="#d6b656" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
+      <rect x="485" y="30" width="120" height="70" rx="7.5" ry="7.5" fill="#faf0e1" stroke="#e8a23c" style="fill: light-dark(rgb(250, 240, 225), rgb(54, 33, 10)); stroke: light-dark(rgb(232, 162, 60), rgb(140, 95, 20));"/>
       <text x="545" y="55" fill="#000000" font-family="Helvetica" font-weight="bold" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">ALLOCATE</text>
       <text x="545" y="75" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">Portfolio optimization</text>
       <text x="545" y="88" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">single decision</text>
@@ -91,16 +91,16 @@
 
     <!-- SCALE Stage -->
     <g data-cell-id="scale-group">
-      <path d="M 760 30 L 760 13.5 Q 760 0 746.5 0 L 653.5 0 Q 640 0 640 13.5 L 640 30" fill="#e1d5e7" stroke="#9673a6" stroke-miterlimit="10" style="fill: light-dark(rgb(225, 213, 231), rgb(57, 47, 63)); stroke: light-dark(rgb(150, 115, 166), rgb(149, 119, 163));"/>
-      <path d="M 640 30 L 640 116.5 Q 640 130 653.5 130 L 746.5 130 Q 760 130 760 116.5 L 760 30" fill="none" stroke="#9673a6" stroke-miterlimit="10" style="stroke: light-dark(rgb(150, 115, 166), rgb(149, 119, 163));"/>
-      <path d="M 640 30 L 760 30" fill="none" stroke="#9673a6" stroke-miterlimit="10" style="stroke: light-dark(rgb(150, 115, 166), rgb(149, 119, 163));"/>
+      <path d="M 760 30 L 760 13.5 Q 760 0 746.5 0 L 653.5 0 Q 640 0 640 13.5 L 640 30" fill="#f7e5eb" stroke="#d46b8a" stroke-miterlimit="10" style="fill: light-dark(rgb(247, 229, 235), rgb(63, 35, 45)); stroke: light-dark(rgb(212, 107, 138), rgb(160, 70, 100));"/>
+      <path d="M 640 30 L 640 116.5 Q 640 130 653.5 130 L 746.5 130 Q 760 130 760 116.5 L 760 30" fill="none" stroke="#d46b8a" stroke-miterlimit="10" style="stroke: light-dark(rgb(212, 107, 138), rgb(160, 70, 100));"/>
+      <path d="M 640 30 L 760 30" fill="none" stroke="#d46b8a" stroke-miterlimit="10" style="stroke: light-dark(rgb(212, 107, 138), rgb(160, 70, 100));"/>
       <text x="700" y="20" fill="#000000" font-family="Helvetica" font-weight="bold" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">SCALE</text>
 
       <!-- Selected initiatives only -->
-      <rect x="655" y="45" width="90" height="20" rx="3" ry="3" fill="#e1d5e7" stroke="#9673a6" style="fill: light-dark(rgb(225, 213, 231), rgb(57, 47, 63)); stroke: light-dark(rgb(150, 115, 166), rgb(149, 119, 163));"/>
+      <rect x="655" y="45" width="90" height="20" rx="3" ry="3" fill="#f7e5eb" stroke="#d46b8a" style="fill: light-dark(rgb(247, 229, 235), rgb(63, 35, 45)); stroke: light-dark(rgb(212, 107, 138), rgb(160, 70, 100));"/>
       <text x="700" y="59" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">A</text>
 
-      <rect x="655" y="70" width="90" height="20" rx="3" ry="3" fill="#e1d5e7" stroke="#9673a6" style="fill: light-dark(rgb(225, 213, 231), rgb(57, 47, 63)); stroke: light-dark(rgb(150, 115, 166), rgb(149, 119, 163));"/>
+      <rect x="655" y="70" width="90" height="20" rx="3" ry="3" fill="#f7e5eb" stroke="#d46b8a" style="fill: light-dark(rgb(247, 229, 235), rgb(63, 35, 45)); stroke: light-dark(rgb(212, 107, 138), rgb(160, 70, 100));"/>
       <text x="700" y="84" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">C</text>
 
       <text x="700" y="115" fill="#666666" font-family="Helvetica" font-style="italic" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(102, 102, 102), rgb(180, 180, 180));">B not selected</text>
