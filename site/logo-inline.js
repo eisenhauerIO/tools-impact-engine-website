@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
         parts.forEach(function (part, i) {
             if (i > 0) {
                 var img = document.createElement("img");
-                img.src = "_static/logo-mark.svg";
+                img.src = "assets/logo-mark.svg";
                 img.alt = "";
                 img.className = "logo-inline";
                 frag.appendChild(img);

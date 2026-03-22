@@ -27,7 +27,7 @@ automatically on push to main via `.github/workflows/deploy.yml` (publishes `sit
   - `system.html` — system architecture: pipeline design, adapters, config pattern
   - `styles.css` — shared stylesheet across all pages
   - `logo-inline.js` — injects inline logo mark into `<strong>` tags
-  - `_static/` — SVG diagrams and logo assets (naming: `logo-*` for branding, `{page}-{subject}.svg` for diagrams)
+  - `assets/` — SVG diagrams and logo assets (naming: `logo-*` for branding, `{page}-{subject}.svg` for diagrams)
 - `.github/workflows/deploy.yml` — GitHub Pages deployment workflow
 - `_external/utils-agentic-support/` — shared agentic support (read-only submodule)
 

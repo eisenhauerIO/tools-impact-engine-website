@@ -17,7 +17,7 @@ site/                   Deployable website directory
   system.html           System page (architecture)
   styles.css            Shared styles
   logo-inline.js        Logo injection script
-  _static/              SVG assets (logo-* for branding, {page}-{subject}.svg for diagrams)
+  assets/              SVG assets (logo-* for branding, {page}-{subject}.svg for diagrams)
 ```
 
 All pages are static HTML sharing one stylesheet. No build step, no templating engine.
