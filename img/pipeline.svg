@@ -10,20 +10,15 @@
       <path d="M 0 30 L 140 30" fill="none" stroke="#666666" stroke-miterlimit="10" style="stroke: light-dark(rgb(102, 102, 102), rgb(149, 149, 149));"/>
       <text x="70" y="20" fill="#000000" font-family="Helvetica" font-weight="bold" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">Input Cohort</text>
 
-      <!-- Initiative boxes -->
-      <rect x="15" y="40" width="50" height="25" rx="3" ry="3" fill="#f5f5f5" stroke="#666666" style="fill: light-dark(rgb(245, 245, 245), rgb(50, 50, 50)); stroke: light-dark(rgb(102, 102, 102), rgb(149, 149, 149));"/>
-      <text x="40" y="57" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">A</text>
+      <!-- Initiative boxes (vertical stack, matching stage layout) -->
+      <rect x="25" y="45" width="90" height="20" rx="3" ry="3" fill="#f5f5f5" stroke="#666666" style="fill: light-dark(rgb(245, 245, 245), rgb(50, 50, 50)); stroke: light-dark(rgb(102, 102, 102), rgb(149, 149, 149));"/>
+      <text x="70" y="59" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">A</text>
 
-      <rect x="75" y="40" width="50" height="25" rx="3" ry="3" fill="#f5f5f5" stroke="#666666" style="fill: light-dark(rgb(245, 245, 245), rgb(50, 50, 50)); stroke: light-dark(rgb(102, 102, 102), rgb(149, 149, 149));"/>
-      <text x="100" y="57" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">B</text>
+      <rect x="25" y="70" width="90" height="20" rx="3" ry="3" fill="#f5f5f5" stroke="#666666" style="fill: light-dark(rgb(245, 245, 245), rgb(50, 50, 50)); stroke: light-dark(rgb(102, 102, 102), rgb(149, 149, 149));"/>
+      <text x="70" y="84" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">B</text>
 
-      <rect x="15" y="70" width="50" height="25" rx="3" ry="3" fill="#f5f5f5" stroke="#666666" style="fill: light-dark(rgb(245, 245, 245), rgb(50, 50, 50)); stroke: light-dark(rgb(102, 102, 102), rgb(149, 149, 149));"/>
-      <text x="40" y="87" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">C</text>
-
-      <rect x="75" y="70" width="50" height="25" rx="3" ry="3" fill="#f5f5f5" stroke="#666666" style="fill: light-dark(rgb(245, 245, 245), rgb(50, 50, 50)); stroke: light-dark(rgb(102, 102, 102), rgb(149, 149, 149));"/>
-      <text x="100" y="87" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">...</text>
-
-      <text x="70" y="115" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">n initiatives</text>
+      <rect x="25" y="95" width="90" height="20" rx="3" ry="3" fill="#f5f5f5" stroke="#666666" style="fill: light-dark(rgb(245, 245, 245), rgb(50, 50, 50)); stroke: light-dark(rgb(102, 102, 102), rgb(149, 149, 149));"/>
+      <text x="70" y="109" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">C</text>
     </g>
 
     <!-- Arrow to MEASURE -->
@@ -41,13 +36,13 @@
 
       <!-- Parallel processing indicators -->
       <rect x="190" y="45" width="90" height="20" rx="3" ry="3" fill="#dae8fc" stroke="#6c8ebf" style="fill: light-dark(rgb(218, 232, 252), rgb(29, 41, 59)); stroke: light-dark(rgb(108, 142, 191), rgb(92, 121, 163));"/>
-      <text x="235" y="59" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">measure(A)</text>
+      <text x="235" y="59" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">A</text>
 
       <rect x="190" y="70" width="90" height="20" rx="3" ry="3" fill="#dae8fc" stroke="#6c8ebf" style="fill: light-dark(rgb(218, 232, 252), rgb(29, 41, 59)); stroke: light-dark(rgb(108, 142, 191), rgb(92, 121, 163));"/>
-      <text x="235" y="84" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">measure(B)</text>
+      <text x="235" y="84" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">B</text>
 
       <rect x="190" y="95" width="90" height="20" rx="3" ry="3" fill="#dae8fc" stroke="#6c8ebf" style="fill: light-dark(rgb(218, 232, 252), rgb(29, 41, 59)); stroke: light-dark(rgb(108, 142, 191), rgb(92, 121, 163));"/>
-      <text x="235" y="109" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">measure(C)</text>
+      <text x="235" y="109" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">C</text>
     </g>
 
     <!-- Arrow to EVALUATE -->
@@ -65,13 +60,13 @@
 
       <!-- Parallel processing indicators -->
       <rect x="345" y="45" width="90" height="20" rx="3" ry="3" fill="#d5e8d4" stroke="#82b366" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
-      <text x="390" y="59" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">evaluate(A)</text>
+      <text x="390" y="59" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">A</text>
 
       <rect x="345" y="70" width="90" height="20" rx="3" ry="3" fill="#d5e8d4" stroke="#82b366" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
-      <text x="390" y="84" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">evaluate(B)</text>
+      <text x="390" y="84" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">B</text>
 
       <rect x="345" y="95" width="90" height="20" rx="3" ry="3" fill="#d5e8d4" stroke="#82b366" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
-      <text x="390" y="109" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">evaluate(C)</text>
+      <text x="390" y="109" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">C</text>
     </g>
 
     <!-- Arrow to ALLOCATE (fan-in) -->
@@ -85,7 +80,7 @@
       <rect x="485" y="30" width="120" height="70" rx="7.5" ry="7.5" fill="#fff2cc" stroke="#d6b656" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
       <text x="545" y="55" fill="#000000" font-family="Helvetica" font-weight="bold" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">ALLOCATE</text>
       <text x="545" y="75" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">Portfolio optimization</text>
-      <text x="545" y="88" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">(single decision)</text>
+      <text x="545" y="88" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">single decision</text>
     </g>
 
     <!-- Arrow to SCALE (fan-out) -->
@@ -103,25 +98,15 @@
 
       <!-- Selected initiatives only -->
       <rect x="655" y="45" width="90" height="20" rx="3" ry="3" fill="#e1d5e7" stroke="#9673a6" style="fill: light-dark(rgb(225, 213, 231), rgb(57, 47, 63)); stroke: light-dark(rgb(150, 115, 166), rgb(149, 119, 163));"/>
-      <text x="700" y="59" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">scale(A)</text>
+      <text x="700" y="59" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">A</text>
 
       <rect x="655" y="70" width="90" height="20" rx="3" ry="3" fill="#e1d5e7" stroke="#9673a6" style="fill: light-dark(rgb(225, 213, 231), rgb(57, 47, 63)); stroke: light-dark(rgb(150, 115, 166), rgb(149, 119, 163));"/>
-      <text x="700" y="84" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">scale(C)</text>
+      <text x="700" y="84" fill="#000000" font-family="Helvetica" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">C</text>
 
       <text x="700" y="115" fill="#666666" font-family="Helvetica" font-style="italic" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(102, 102, 102), rgb(180, 180, 180));">B not selected</text>
     </g>
 
-    <!-- Arrow to Output -->
-    <g>
-      <path d="M 760 65 L 788 65" fill="none" stroke="#666666" stroke-width="2" style="stroke: light-dark(rgb(102, 102, 102), rgb(149, 149, 149));"/>
-      <path d="M 794 65 L 786 69 L 788 65 L 786 61 Z" fill="#666666" stroke="#666666" stroke-width="2" style="fill: light-dark(rgb(102, 102, 102), rgb(149, 149, 149)); stroke: light-dark(rgb(102, 102, 102), rgb(149, 149, 149));"/>
-    </g>
 
-    <!-- Output Report -->
-    <g data-cell-id="output-group">
-      <rect x="795" y="30" width="20" height="70" rx="3" ry="3" fill="#ffe6cc" stroke="#d79b00" style="fill: light-dark(rgb(255, 230, 204), rgb(54, 33, 10)); stroke: light-dark(rgb(215, 155, 0), rgb(153, 101, 0));"/>
-      <text x="0" y="0" fill="#000000" font-family="Helvetica" font-weight="bold" text-anchor="middle" dominant-baseline="central" font-size="10px" transform="translate(805, 65) rotate(-90)" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">Report</text>
-    </g>
 
   </g>
 </svg>
