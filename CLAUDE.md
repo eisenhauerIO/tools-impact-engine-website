@@ -44,3 +44,55 @@ on push to main via `.github/workflows/deploy.yml`.
 - Memo pages live in `memos/` and use `../` prefixed paths for shared assets
 - `_external/` directory is read-only — do not modify files inside it
 - No print statements or console.log in JavaScript
+
+## Cross-page structure (MUST maintain symmetry)
+
+### Navigation
+
+`Home` / `Science` / `System` — consistent across all pages.
+
+### Page structure (science.html, system.html)
+
+Both deep-dive pages follow the same skeleton:
+
+1. `<h1>` title + epigraph + subtitle
+2. Three `<h2>` sections, each: **Topic — Question?**
+3. Each section: `section-flex` (image + text, alternating sides) → `<h4>` with CI badges + package name → `<p>` description
+4. `<hr>` + **Further Reading** with `<h4>` subheadings matching the three `<h2>` section topics
+5. Back to Home link
+
+### Section headings
+
+Science and System h2s are symmetric two-word labels with distinct second words:
+
+| Science | System |
+|---------|--------|
+| Causal Inference — What happened? | Pipeline Design — How is it wired? |
+| Evidence Assessment — What did we learn? | Extension Points — How does it extend? |
+| Decision Theory — What should we do? | Agentic Support — How is it built? |
+
+### Deep Dives cards (index.html)
+
+The Deep Dives card descriptions echo the three questions from each page's h2 headings:
+
+- **Science**: What happened? What did we learn? What should we do?
+- **System**: How is it wired? How does it extend? How is it built?
+
+### Index section headings
+
+All two words: **Decision Loop** / **Source Codes** / **Deep Dives**.
+
+### Further Reading sections
+
+- `<h4>` subheadings match the page's three `<h2>` section topics (not generic categories)
+- Two references per subheading
+- Reference format: `Author(s) — <em>Title</em> (venue/edition, year)`
+  - Authors: `Initials. Surname & Initials. Surname` — use `&` for two, list all for three+, `et al.` for five+
+  - Org authors (no person): just the org name, no initials (e.g., `Anthropic`)
+  - Title: always in `<em>` italics regardless of format (book, paper, blog post)
+  - Parenthetical: `(year)` for standalone books, `(venue, year)` for blog posts/cookbooks/proceedings, `(edition, year)` for revised editions, `(series, year)` for monograph series
+  - Use `&amp;` for `&` in HTML
+
+### Footer
+
+Index page has a lightweight author attribution footer: "Built by Philipp Eisenhauer".

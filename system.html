@@ -14,7 +14,7 @@
     <div class="container">
         <nav>
             <ul>
-                <li><a href="index.html">Mission</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="science.html">Science</a></li>
                 <li><a href="system.html" aria-current="page">System</a></li>
 
@@ -35,193 +35,114 @@
             </header>
 
             <main>
-                <h2>Design Decisions</h2>
+                <h2>Pipeline Design — How is it wired?</h2>
                 <div class="section-flex">
                     <div class="section-image" style="max-width: 420px;">
-                        <img src="img/overview.svg"
-                             alt="Pipeline stages: Measure, Evaluate, Allocate, Scale">
-                        <p class="diagram-caption">Four stages, four packages, one orchestrator.</p>
+                        <img src="img/pipeline.svg"
+                             alt="Pipeline flow showing parallel fan-out per initiative, fan-in at Allocate, and fan-out for selected initiatives">
+                        <p class="diagram-caption">Fan out per initiative, fan in at the decision boundary, fan back out for the winners.</p>
                     </div>
                     <div class="section-text">
                         <p>
-                            Four design decisions keep each stage decoupled while the
-                            orchestrator wires them together at runtime.
+                            The pipeline fans out measurements and evidence scoring in parallel —
+                            one call per initiative — then synchronizes at the allocation boundary
+                            where all results are needed to make a single portfolio decision.
+                            Selected initiatives fan back out for scaled deployment.
                         </p>
                     </div>
                 </div>
-                <div class="card-grid card-grid-2">
-                    <div class="card">
-                        <h3>Protocol-based interfaces</h3>
-                        <p>
-                            Components satisfy a <code>typing.Protocol</code> — structural
-                            subtyping, not inheritance. Each package defines
-                            <code>PipelineComponent</code> locally. No shared base import,
-                            no circular dependencies, no coupling beyond the method signature.
-                        </p>
-                    </div>
-                    <div class="card">
-                        <h3>Dict boundaries</h3>
-                        <p>
-                            <code>execute()</code> takes and returns a plain <code>dict</code>.
-                            No cross-package type imports. Components are coupled only by
-                            dict key names — making each package independently deployable
-                            and testable.
-                        </p>
-                    </div>
-                    <div class="card">
-                        <h3>Schema versioning</h3>
-                        <p>
-                            Every output dict includes <code>schema_version: "X.Y"</code>.
-                            Consumers validate the major version and fail explicitly on mismatch.
-                            Minor bumps (additive fields) are always safe. Breaking changes
-                            require coordinated major bumps across producer and consumer.
-                        </p>
-                    </div>
-                    <div class="card">
-                        <h3>Configuration-driven execution</h3>
-                        <p>
-                            A YAML file selects components, parameters, and data sources.
-                            A static registry maps component names to classes; a factory
-                            instantiates from config at runtime. No code changes to run
-                            a different scenario — change the config, re-run.
-                        </p>
-                    </div>
-                </div>
-                <pre><code># Each package defines its own Protocol (no shared import)
-class PipelineComponent(Protocol):
-    def execute(self, event: dict) -> dict: ...
-
-# Registry maps config names → classes
-COMPONENT_REGISTRY = {
-    "Measure": Measure,
-    "Evaluate": Evaluate,
-    "MinimaxRegretAllocate": MinimaxRegretAllocate,
-}</code></pre>
+                <h4>
+                    <span class="badges">
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-orchestrator/actions/workflows/ci.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-orchestrator/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>
+                        <a href="https://github.com/eisenhauerIO/tools-impact-engine-orchestrator/actions/workflows/docs.yaml" target="_blank"><img src="https://github.com/eisenhauerIO/tools-impact-engine-orchestrator/actions/workflows/docs.yaml/badge.svg?branch=main" alt="Docs"></a>
+                    </span>
+                    Impact Engine — Orchestrator
+                </h4>
                 <p>
-                    The orchestrator enforces these decisions. It owns the registry, the config
-                    loader, and the fan-out/fan-in execution model — connecting independently
-                    developed stages into a single pipeline run.
+                    The <strong>Impact Engine — Orchestrator</strong> owns the wiring: the
+                    component registry, the config loader, and the fan-out/fan-in execution
+                    model. Four independent packages, each with its own repository and CI
+                    pipeline, are connected into a single run by one YAML config file.
                 </p>
 
-                <h2>Pipeline Architecture</h2>
-                <div class="diagram-container">
-                    <img src="img/pipeline.svg" alt="Pipeline flow showing parallel fan-out per initiative, fan-in at Allocate, and fan-out for selected initiatives">
-                </div>
-                <div class="card-grid card-grid-4">
-                    <div class="card card-compact">
-                        <h3>Measure</h3>
-                        <p>Causal effect estimation. Parallel — one call per initiative.</p>
-                    </div>
-                    <div class="card card-compact">
-                        <h3>Evaluate</h3>
-                        <p>Evidence quality scoring. Parallel — one call per initiative.</p>
-                    </div>
-                    <div class="card card-compact">
-                        <h3>Allocate</h3>
-                        <p>Portfolio optimization. Fan-in — single decision over all initiatives.</p>
-                    </div>
-                    <div class="card card-compact">
-                        <h3>Scale</h3>
-                        <p>Run at production scale. Fan-out — selected initiatives only.</p>
-                    </div>
-                </div>
-                <p>
-                    Each stage is an independent component exposing a single method:
-                    <code>execute(event) &rarr; result</code>. The orchestrator wires them
-                    together using a <code>ThreadPoolExecutor</code> for parallel fan-out,
-                    synchronizes at the fan-in boundary before Allocate, and fans back out
-                    for the selected initiatives.
-                </p>
-
-                <h2>Component Architecture</h2>
+                <h2>Extension Points — How does it extend?</h2>
                 <div class="section-flex">
                     <div class="section-text">
                         <p>
-                            Each component follows the same internal pattern. The Measure package
-                            illustrates it: an internal pipeline of Load, Transform, Measure, and
-                            Store — each backed by a pluggable adapter.
+                            Every stage follows the same internal pattern: external libraries
+                            sit behind thin adapters that self-register with a decorator.
+                            Adding a new causal model, decision rule, or scoring function means
+                            one new class, zero pipeline changes.
                         </p>
                     </div>
                     <div class="section-image" style="max-width: 420px;">
                         <img src="img/measure-architecture.svg"
-                             alt="Measure internal pipeline: Load → Transform → Measure → Store, each backed by an adapter">
-                        <p class="diagram-caption">Measure component: Load → Transform → Measure → Store</p>
+                             alt="Measure internal pipeline: Load → Transform → Measure → Store, each backed by a pluggable adapter">
+                        <p class="diagram-caption">Each stage is a pipeline of pluggable adapters. Swap one without touching the rest.</p>
                     </div>
                 </div>
+                <pre><code># One interface, one registry, one decorator
+@MODEL_REGISTRY.register_decorator("interrupted_time_series")
+class InterruptedTimeSeries(ModelInterface):
+    def fit(self, data): ...</code></pre>
                 <p>
-                    External libraries sit behind thin adapter wrappers implementing a shared
-                    interface (<code>connect</code>, <code>validate</code>, <code>fit</code>) —
-                    the adapter is the only code that knows about the library. Each adapter
-                    self-registers via decorator
-                    (<code>@MODEL_REGISTRY.register_decorator("interrupted_time_series")</code>);
-                    adding a new model means one new class, zero pipeline changes. Allocate and
-                    Evaluate follow the same pattern: pluggable solvers injected via constructor,
-                    scoring functions keyed by model type.
+                    Components communicate through plain <code>dict</code> boundaries —
+                    no cross-package type imports, no shared base classes. Each package is
+                    independently deployable and testable. A YAML config selects which
+                    components to wire together; changing the scenario means changing the
+                    config, not the code.
                 </p>
 
-                <h2>Agentic Support</h2>
-                <p>
-                    <strong>Conventions as a runtime instruction set.</strong> Each repo's
-                    <code>CLAUDE.md</code> is not documentation — it is an active constraint
-                    on every AI-assisted change. When Claude Code opens any package in the
-                    ecosystem, it reads the dependency graph, naming rules, and interface
-                    contracts before touching a single file. Enforcement does not rely on
-                    humans remembering a style guide; it is embedded in the model's context.
-                    A hierarchical structure propagates shared conventions from the workspace
-                    root down to each component, with repo-specific extensions layered on top.
-                </p>
-                <p>
-                    A shared library (<a href="https://github.com/eisenhauerIO/utils-agentic-support" target="_blank">utils-agentic-support</a>),
-                    installed as a git submodule across all packages, supplies the skills,
-                    subagents, and templates that make this work in practice.
-                </p>
-                <div class="card-grid card-grid-3">
-                    <div class="card card-compact">
-                        <h3>Skills</h3>
-                        <p>
-                            General-purpose slash commands (feature workflows, code review,
-                            tech debt scanning) and ecosystem-specific ones (package
-                            scaffolding, cross-repo config sync, convention auditing).
-                        </p>
+                <h2>Agentic Support — How is it built?</h2>
+                <div class="section-flex">
+                    <div class="section-image" style="max-width: 420px;">
+                        <img src="img/overview.svg"
+                             alt="Four packages, each with its own CLAUDE.md, connected by shared conventions">
+                        <p class="diagram-caption">Conventions propagate from workspace root to each component. The AI reads the rules before touching a file.</p>
                     </div>
-                    <div class="card card-compact">
-                        <h3>Subagents</h3>
+                    <div class="section-text">
                         <p>
-                            Specialized AI agents for code review, architecture evaluation,
-                            cross-boundary consistency checks, documentation generation,
-                            and test writing — each with scoped tool permissions.
-                        </p>
-                    </div>
-                    <div class="card card-compact">
-                        <h3>Templates</h3>
-                        <p>
-                            Feature-type scaffolding for new pipeline components, adapters,
-                            and measurement models. Hierarchical <code>CLAUDE.md</code>
-                            files propagate conventions from workspace to component level.
+                            A system that requires its builder to enforce every convention
+                            creates a dependency. Each repo's <code>CLAUDE.md</code> is not
+                            documentation — it is a runtime constraint on every AI-assisted
+                            change: dependency graph, naming rules, interface contracts, all
+                            read before a single file is touched.
                         </p>
                     </div>
                 </div>
+                <h4>
+                    <span class="badges">
+                        <a href="https://github.com/eisenhauerIO/utils-agentic-support" target="_blank"><img src="https://github.com/eisenhauerIO/utils-agentic-support/actions/workflows/ci.yaml/badge.svg" alt="CI"></a>
+                    </span>
+                    Agentic Support
+                </h4>
+                <p>
+                    A shared library (<a href="https://github.com/eisenhauerIO/utils-agentic-support" target="_blank"><strong>utils-agentic-support</strong></a>),
+                    installed as a git submodule across all packages, supplies skills,
+                    subagents, and templates. Enforcement does not rely on humans
+                    remembering a style guide — it is embedded in the model's context,
+                    so the system can extend without its architect in the loop.
+                </p>
 
                 <hr>
                 <h2>Further Reading</h2>
-                <p>The architecture borrows heavily from three bodies of work: classical software design patterns, messaging-oriented integration, and the operational discipline of running ML in production.</p>
 
-                <h4>Software Design</h4>
-                <div class="reading-list">
-                    <p>E. Gamma, R. Helm, R. Johnson &amp; J. Vlissides — <em>Design Patterns: Elements of Reusable Object-Oriented Software</em> (1994)</p>
-                    <p>M. Fowler — <em>Patterns of Enterprise Application Architecture</em> (2002)</p>
-                </div>
-
-                <h4>Integration Patterns</h4>
+                <h4>Pipeline Design</h4>
                 <div class="reading-list">
                     <p>G. Hohpe &amp; B. Woolf — <em>Enterprise Integration Patterns: Designing, Building, and Deploying Messaging Solutions</em> (2003)</p>
                     <p>M. Kleppmann — <em>Designing Data-Intensive Applications</em> (2017)</p>
                 </div>
 
-                <h4>Production Systems</h4>
+                <h4>Extension Points</h4>
                 <div class="reading-list">
-                    <p>B. Beyer, C. Jones, J. Petoff &amp; N.R. Murphy — <em>Site Reliability Engineering: How Google Runs Production Systems</em> (2016)</p>
-                    <p>D. Sculley et al. — <em>Hidden Technical Debt in Machine Learning Systems</em>, NeurIPS (2015)</p>
+                    <p>E. Gamma, R. Helm, R. Johnson &amp; J. Vlissides — <em>Design Patterns: Elements of Reusable Object-Oriented Software</em> (1994)</p>
+                    <p>M. Fowler — <em>Patterns of Enterprise Application Architecture</em> (2002)</p>
+                </div>
+
+                <h4>Agentic Support</h4>
+                <div class="reading-list">
+                    <p>Anthropic — <em>Building Effective Agents</em> (Anthropic Blog, 2024)</p>
+                    <p>S. Kwatra, H. Wimberly, J. Marker &amp; E. Siegel — <em>Eval-Driven System Design: From Prototype to Production</em> (OpenAI Cookbook, 2025)</p>
                 </div>
 
                 <a href="index.html" class="back-link">
