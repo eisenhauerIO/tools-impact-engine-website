@@ -1,5 +1,8 @@
 # CLAUDE.md
 
+Shared conventions: see `../GUIDELINES.md` for cross-site standards (design tokens,
+typography, responsive breakpoints, content principles).
+
 ## Project overview
 
 Static project website for the Impact Engine ecosystem. Covers the value proposition (index),
