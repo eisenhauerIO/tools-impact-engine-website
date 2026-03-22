@@ -11,12 +11,13 @@ and students.
 ## Architecture overview
 
 ```
-index.html          Problem page (landing)
-science.html        Science page (methodology)
-system.html         System page (architecture)
-styles.css          Shared styles
-logo-inline.js      Logo injection script
-img/                SVG assets
+site/                   Deployable website directory
+  index.html            Problem page (landing)
+  science.html          Science page (methodology)
+  system.html           System page (architecture)
+  styles.css            Shared styles
+  logo-inline.js        Logo injection script
+  _static/              SVG assets (logo-* for branding, {page}-{subject}.svg for diagrams)
 ```
 
 All pages are static HTML sharing one stylesheet. No build step, no templating engine.

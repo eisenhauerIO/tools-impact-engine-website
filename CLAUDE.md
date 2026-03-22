@@ -8,28 +8,29 @@ to GitHub Pages via a deploy workflow.
 
 ## Development setup
 
-No build step. Open any `.html` file in a browser to preview. Deploy happens automatically
-on push to main via `.github/workflows/deploy.yml`.
+No build step. Open any `.html` file under `site/` in a browser to preview. Deploy happens
+automatically on push to main via `.github/workflows/deploy.yml` (publishes `site/` directory).
 
 ## Common commands
 
-- `python -m http.server` — serve locally at localhost:8000 for preview
+- `python -m http.server -d site` — serve locally at localhost:8000 for preview
 - `git push origin main` — deploy to GitHub Pages (triggers CI)
 
 ## Architecture
 
-- `index.html` — landing page: value proposition, decision loop, source code links
-- `science.html` — scientific foundations: causal inference, evidence assessment, decision theory
-- `system.html` — system architecture: pipeline design, adapters, config pattern
-- `styles.css` — shared stylesheet across all pages
-- `logo-inline.js` — injects inline logo mark into `<strong>` tags
-- `img/` — SVG diagrams and logo assets
+- `site/` — deployable website directory (published to GitHub Pages)
+  - `index.html` — landing page: value proposition, decision loop, source code links
+  - `science.html` — scientific foundations: causal inference, evidence assessment, decision theory
+  - `system.html` — system architecture: pipeline design, adapters, config pattern
+  - `styles.css` — shared stylesheet across all pages
+  - `logo-inline.js` — injects inline logo mark into `<strong>` tags
+  - `_static/` — SVG diagrams and logo assets (naming: `logo-*` for branding, `{page}-{subject}.svg` for diagrams)
 - `.github/workflows/deploy.yml` — GitHub Pages deployment workflow
 - `_external/utils-agentic-support/` — shared agentic support (read-only submodule)
 
 ## Verification
 
-1. Open each HTML page in a browser and verify navigation links work
+1. Open each HTML page under `site/` in a browser and verify navigation links work
 2. Check that all SVG diagrams render correctly
 3. Verify responsive layout at 768px and 480px breakpoints
 4. Push to GitHub and confirm deploy workflow passes
