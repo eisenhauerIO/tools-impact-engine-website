@@ -14,7 +14,7 @@
     <div class="container">
         <nav>
             <ul>
-                <li><a href="index.html" aria-current="page">Problem</a></li>
+                <li><a href="index.html" aria-current="page">Mission</a></li>
                 <li><a href="science.html">Science</a></li>
                 <li><a href="system.html">System</a></li>
 
@@ -27,14 +27,18 @@
                     <img src="img/logo-full-light.svg" alt="Impact Engine — Measure · Evaluate · Allocate · Scale">
                 </div>
                 <p class="subtitle">
-                    <a href="https://peisenha.github.io" target="_blank">Philipp Eisenhauer</a>
-                    works at the intersection of science, production engineering,
-                    and decision-making. His operating principle —
-                    <a href="https://peisenha.github.io/operating-principles.html" target="_blank">Learn · Decide · Repeat</a>
-                    — drives everything he builds.
-                    Impact Engine is that principle made concrete: an open-source Python
-                    ecosystem that measures impact, scores evidence quality, and
-                    optimizes resource allocation in a repeating decision loop.
+                    Without shared infrastructure, measurement fails and allocation is
+                    blind. Every team produces its own estimate — different assumptions,
+                    different baselines, different definitions of success. There's no
+                    systematic way to distinguish rigorous evidence from back-of-envelope
+                    projections, so budget flows on advocacy and intuition.
+                </p>
+                <p class="subtitle">
+                    The Impact Engine fixes that. The value is in the system, not the
+                    analysis — measurement repeatable, evidence scored, allocation
+                    anchored. The learning loop is a system property: it disappears if
+                    any stage is manual or disconnected. A team doing this work creates a
+                    dependency. A system doing this work creates an asset.
                 </p>
             </header>
 
@@ -62,14 +66,11 @@
                     runs this loop from a single config file. It names the initiatives under
                     consideration, sets the total budget, and picks the allocation rule. Each
                     initiative carries a <code>measure_config</code> — a YAML file that specifies
-                    the impact measurement approach tailored to that initiative: which causal model
-                    to apply, what data to draw from, and how to set up the experiment.
+                    the impact measurement approach tailored to that initiative.
                 </p>
                 <span class="code-label">pipeline.yaml</span>
-                <pre><code>budget: 100000
-storage_url: ./data/measure
-
-ALLOCATE:
+                <pre><code>ALLOCATE:
+  budget: 100000
   rule: minimax_regret
 
 INITIATIVES:
@@ -92,7 +93,7 @@ result = run_pipeline("pipeline.yaml")</code></pre>
                     <a href="https://eisenhauerio.github.io/tools-impact-engine-orchestrator/impact-loop/impact-loop.html" target="_blank">Walk through a full pipeline run &rarr;</a>
                 </p>
 
-                <h2>Source Codes</h2>
+                <h2>Source Code</h2>
                 <p>
                     Each package is an independent library with its own test suite
                     and CI pipeline — use one to solve a specific problem, or wire
@@ -131,6 +132,9 @@ result = run_pipeline("pipeline.yaml")</code></pre>
                     </a>
                 </div>
             </main>
+            <footer>
+                <p>Built by <a href="https://peisenha.github.io" target="_blank">Philipp Eisenhauer</a></p>
+            </footer>
         </div>
     </div>
 <script src="logo-inline.js"></script>
