@@ -67,9 +67,9 @@ Science and System h2s are symmetric two-word labels with distinct second words:
 
 | Science | System |
 |---------|--------|
-| Causal Inference — What happened? | Pipeline Design — How is it wired? |
-| Evidence Assessment — What did we learn? | Extension Points — How does it extend? |
-| Decision Theory — What should we do? | Agentic Support — How is it built? |
+| What happened? — Causal Inference | How is it wired? — Pipeline Design |
+| What did we learn? — Evidence Assessment | How does it extend? — Extension Points |
+| What should we do? — Decision Theory | How is it built? — Agentic Support |
 
 ### Deep Dives cards (index.html)
 
